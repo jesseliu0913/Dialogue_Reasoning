@@ -175,3 +175,6 @@ cython_debug/
 
 # reasoning_generation/data
 /reasoning_generation/data/*
+
+# maze generation
+/maze_generation/MedQA_Maze/*

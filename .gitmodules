@@ -1,0 +1,3 @@
+[submodule "maze_generation/MedQA_Maze"]
+	path = maze_generation/MedQA_Maze
+	url = https://huggingface.co/datasets/JesseLiu/MedQA_Maze
