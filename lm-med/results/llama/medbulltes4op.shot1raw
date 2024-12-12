@@ -1,0 +1,942 @@
+nohup: ignoring input
+2024-11-08:15:53:00,744 INFO     [__main__.py:279] Verbosity set to INFO
+2024-11-08:15:53:05,578 INFO     [__init__.py:459] The tag 'arc_ca' is already registered as a group, this tag will not be registered. This may affect tasks you want to call.
+2024-11-08:15:53:05,599 INFO     [__init__.py:459] The tag 'arc_ca' is already registered as a group, this tag will not be registered. This may affect tasks you want to call.
+2024-11-08:15:53:09,255 INFO     [__main__.py:376] Selected Tasks: ['medbulltes4op']
+2024-11-08:15:53:09,257 INFO     [evaluator.py:164] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234 | Setting fewshot manual seed to 1234
+2024-11-08:15:53:09,257 INFO     [evaluator.py:201] Initializing hf model, with arguments: {'pretrained': 'meta-llama/Llama-2-7b-chat-hf', 'dtype': 'float16', 'low_cpu_mem_usage': True, 'trust_remote_code': True}
+2024-11-08:15:53:09,423 WARNING  [other.py:349] Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+2024-11-08:15:53:09,423 INFO     [huggingface.py:130] Using device 'cuda'
+2024-11-08:15:53:09,518 INFO     [huggingface.py:483] Using model type 'default'
+2024-11-08:15:53:09,739 INFO     [huggingface.py:367] Model parallel was set to False, max memory was not set, and device map was set to {'': 'cuda'}
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.98s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.43s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.66s/it]
+2024-11-08:15:53:17,752 INFO     [evaluator.py:266] num_fewshot has been set to 0 for medexplain4op in its config. Manual configuration will be ignored.
+2024-11-08:15:53:17,753 WARNING  [evaluator.py:270] Overwriting default num_fewshot of mcqa4op from 3 to 1
+2024-11-08:15:53:17,753 WARNING  [evaluator.py:270] Overwriting default num_fewshot of medcot4op from 3 to 1
+2024-11-08:15:53:17,753 WARNING  [model.py:422] model.chat_template was called with the chat_template set to False or None. Therefore no chat template will be applied. Make sure this is an intended behavior.
+2024-11-08:15:53:17,759 INFO     [task.py:415] Building contexts for medexplain4op on rank 0...
+  0%|          | 0/298 [00:00<?, ?it/s]100%|██████████| 298/298 [00:00<00:00, 75518.25it/s]
+2024-11-08:15:53:17,783 INFO     [task.py:415] Building contexts for mcqa4op on rank 0...
+  0%|          | 0/298 [00:00<?, ?it/s]100%|██████████| 298/298 [00:00<00:00, 42047.45it/s]
+2024-11-08:15:53:17,809 INFO     [task.py:415] Building contexts for medcot4op on rank 0...
+  0%|          | 0/298 [00:00<?, ?it/s]100%|██████████| 298/298 [00:00<00:00, 31762.92it/s]
+2024-11-08:15:53:17,838 INFO     [evaluator.py:489] Running generate_until requests
+Running generate_until requests:   0%|          | 0/298 [00:00<?, ?it/s]Starting from v4.46, the `logits` model output will have the same type as the model (except at train time, where it will always be FP32)
+/scratch0/zx22/zijie/miniconda3/envs/meditron/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:601: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/scratch0/zx22/zijie/miniconda3/envs/meditron/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:606: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+Running generate_until requests:   0%|          | 1/298 [00:47<3:54:09, 47.31s/it]Running generate_until requests:   2%|▏         | 5/298 [01:09<57:52, 11.85s/it]  Running generate_until requests:   3%|▎         | 9/298 [01:32<40:39,  8.44s/it]Running generate_until requests:   4%|▍         | 13/298 [01:59<36:41,  7.73s/it]Running generate_until requests:   6%|▌         | 17/298 [02:27<34:52,  7.45s/it]Running generate_until requests:   7%|▋         | 21/298 [02:50<31:39,  6.86s/it]Running generate_until requests:   8%|▊         | 25/298 [03:12<28:59,  6.37s/it]Running generate_until requests:  10%|▉         | 29/298 [03:36<27:57,  6.23s/it]Running generate_until requests:  11%|█         | 33/298 [03:55<25:35,  5.80s/it]Running generate_until requests:  12%|█▏        | 37/298 [05:06<41:15,  9.48s/it]Running generate_until requests:  14%|█▍        | 41/298 [05:29<35:42,  8.34s/it]Running generate_until requests:  15%|█▌        | 45/298 [05:54<32:34,  7.72s/it]Running generate_until requests:  16%|█▋        | 49/298 [06:12<27:54,  6.72s/it]Running generate_until requests:  18%|█▊        | 53/298 [06:32<25:28,  6.24s/it]Running generate_until requests:  19%|█▉        | 57/298 [06:55<24:24,  6.08s/it]Running generate_until requests:  20%|██        | 61/298 [07:17<23:17,  5.90s/it]Running generate_until requests:  22%|██▏       | 65/298 [08:29<36:58,  9.52s/it]Running generate_until requests:  23%|██▎       | 69/298 [08:54<32:32,  8.52s/it]Running generate_until requests:  24%|██▍       | 73/298 [09:16<28:43,  7.66s/it]Running generate_until requests:  26%|██▌       | 77/298 [09:34<24:44,  6.71s/it]Running generate_until requests:  27%|██▋       | 81/298 [10:47<36:42, 10.15s/it]Running generate_until requests:  29%|██▊       | 85/298 [11:07<30:36,  8.62s/it]Running generate_until requests:  30%|██▉       | 89/298 [11:30<26:55,  7.73s/it]Running generate_until requests:  31%|███       | 93/298 [11:53<24:26,  7.15s/it]Running generate_until requests:  33%|███▎      | 97/298 [12:14<22:09,  6.61s/it]Running generate_until requests:  34%|███▍      | 101/298 [12:37<20:49,  6.34s/it]Running generate_until requests:  35%|███▌      | 105/298 [12:59<19:27,  6.05s/it]Running generate_until requests:  37%|███▋      | 109/298 [13:18<17:55,  5.69s/it]Running generate_until requests:  38%|███▊      | 113/298 [13:39<17:02,  5.53s/it]Running generate_until requests:  39%|███▉      | 117/298 [13:59<16:11,  5.37s/it]Running generate_until requests:  41%|████      | 121/298 [14:19<15:36,  5.29s/it]Running generate_until requests:  42%|████▏     | 125/298 [14:55<18:29,  6.41s/it]Running generate_until requests:  43%|████▎     | 129/298 [15:18<17:28,  6.21s/it]Running generate_until requests:  45%|████▍     | 133/298 [15:37<15:45,  5.73s/it]Running generate_until requests:  46%|████▌     | 137/298 [15:54<14:13,  5.30s/it]Running generate_until requests:  47%|████▋     | 141/298 [16:16<14:01,  5.36s/it]Running generate_until requests:  49%|████▊     | 145/298 [16:44<14:53,  5.84s/it]Running generate_until requests:  50%|█████     | 149/298 [17:14<15:51,  6.39s/it]Running generate_until requests:  51%|█████▏    | 153/298 [17:35<14:32,  6.02s/it]Running generate_until requests:  53%|█████▎    | 157/298 [17:53<13:00,  5.54s/it]Running generate_until requests:  54%|█████▍    | 161/298 [18:09<11:35,  5.08s/it]Running generate_until requests:  55%|█████▌    | 165/298 [18:28<11:07,  5.02s/it]Running generate_until requests:  57%|█████▋    | 169/298 [18:52<11:20,  5.28s/it]Running generate_until requests:  58%|█████▊    | 173/298 [19:12<10:54,  5.24s/it]Running generate_until requests:  59%|█████▉    | 177/298 [19:34<10:41,  5.30s/it]Running generate_until requests:  61%|██████    | 181/298 [19:54<10:12,  5.24s/it]Running generate_until requests:  62%|██████▏   | 185/298 [20:16<09:58,  5.30s/it]Running generate_until requests:  63%|██████▎   | 189/298 [20:36<09:29,  5.22s/it]Running generate_until requests:  65%|██████▍   | 193/298 [20:52<08:26,  4.82s/it]Running generate_until requests:  66%|██████▌   | 197/298 [21:09<07:54,  4.69s/it]Running generate_until requests:  67%|██████▋   | 201/298 [21:29<07:37,  4.72s/it]Running generate_until requests:  69%|██████▉   | 205/298 [21:46<07:08,  4.61s/it]Running generate_until requests:  70%|███████   | 209/298 [22:10<07:24,  5.00s/it]Running generate_until requests:  71%|███████▏  | 213/298 [22:28<06:57,  4.91s/it]Running generate_until requests:  73%|███████▎  | 217/298 [22:53<07:08,  5.29s/it]Running generate_until requests:  74%|███████▍  | 221/298 [23:11<06:27,  5.03s/it]Running generate_until requests:  76%|███████▌  | 225/298 [23:32<06:12,  5.10s/it]Running generate_until requests:  77%|███████▋  | 229/298 [23:51<05:44,  4.99s/it]Running generate_until requests:  78%|███████▊  | 233/298 [24:14<05:42,  5.27s/it]Running generate_until requests:  80%|███████▉  | 237/298 [24:35<05:18,  5.23s/it]Running generate_until requests:  81%|████████  | 241/298 [24:58<05:05,  5.36s/it]Running generate_until requests:  82%|████████▏ | 245/298 [25:13<04:19,  4.90s/it]Running generate_until requests:  84%|████████▎ | 249/298 [25:36<04:13,  5.17s/it]Running generate_until requests:  85%|████████▍ | 253/298 [25:54<03:43,  4.98s/it]Running generate_until requests:  86%|████████▌ | 257/298 [26:15<03:25,  5.02s/it]Running generate_until requests:  88%|████████▊ | 261/298 [26:29<02:50,  4.60s/it]Running generate_until requests:  89%|████████▉ | 265/298 [26:48<02:33,  4.64s/it]Running generate_until requests:  90%|█████████ | 269/298 [27:10<02:22,  4.91s/it]Running generate_until requests:  92%|█████████▏| 273/298 [27:29<02:01,  4.85s/it]Running generate_until requests:  93%|█████████▎| 277/298 [27:46<01:38,  4.70s/it]Running generate_until requests:  94%|█████████▍| 281/298 [28:08<01:23,  4.90s/it]Running generate_until requests:  96%|█████████▌| 285/298 [28:28<01:04,  4.95s/it]Running generate_until requests:  97%|█████████▋| 289/298 [28:44<00:42,  4.67s/it]Running generate_until requests:  98%|█████████▊| 293/298 [28:59<00:21,  4.37s/it]Running generate_until requests: 100%|█████████▉| 297/298 [29:15<00:04,  4.25s/it]Running generate_until requests: 100%|██████████| 298/298 [29:15<00:00,  5.89s/it]
+2024-11-08:16:22:33,302 INFO     [evaluator.py:489] Running loglikelihood requests
+Passed argument batch_size = auto. Detecting largest batch size
+Determined Largest batch size: 4
+Running loglikelihood requests:   0%|          | 0/2384 [00:00<?, ?it/s]Running loglikelihood requests:   0%|          | 1/2384 [00:28<18:51:44, 28.50s/it]Running loglikelihood requests:   1%|          | 17/2384 [00:30<52:24,  1.33s/it]  Running loglikelihood requests:   1%|▏         | 33/2384 [00:32<25:01,  1.57it/s]Running loglikelihood requests:   2%|▏         | 49/2384 [00:35<15:57,  2.44it/s]Running loglikelihood requests:   3%|▎         | 65/2384 [00:37<11:38,  3.32it/s]Running loglikelihood requests:   3%|▎         | 81/2384 [00:39<09:13,  4.16it/s]Running loglikelihood requests:   4%|▍         | 97/2384 [00:41<07:42,  4.94it/s]Running loglikelihood requests:   5%|▍         | 113/2384 [00:43<06:43,  5.62it/s]Running loglikelihood requests:   5%|▌         | 129/2384 [00:45<06:04,  6.19it/s]Running loglikelihood requests:   6%|▌         | 145/2384 [00:47<05:36,  6.65it/s]Running loglikelihood requests:   7%|▋         | 161/2384 [00:49<05:16,  7.01it/s]Running loglikelihood requests:   7%|▋         | 177/2384 [00:51<05:02,  7.30it/s]Running loglikelihood requests:   8%|▊         | 193/2384 [00:53<04:51,  7.52it/s]Running loglikelihood requests:   9%|▉         | 209/2384 [00:55<04:42,  7.70it/s]Running loglikelihood requests:   9%|▉         | 225/2384 [00:57<04:35,  7.84it/s]Running loglikelihood requests:  10%|█         | 241/2384 [00:59<04:29,  7.94it/s]Running loglikelihood requests:  11%|█         | 257/2384 [01:01<04:23,  8.06it/s]Running loglikelihood requests:  11%|█▏        | 273/2384 [01:03<04:19,  8.15it/s]Running loglikelihood requests:  12%|█▏        | 289/2384 [01:04<04:14,  8.23it/s]Running loglikelihood requests:  13%|█▎        | 305/2384 [01:06<04:10,  8.30it/s]Running loglikelihood requests:  13%|█▎        | 321/2384 [01:08<04:07,  8.35it/s]Running loglikelihood requests:  14%|█▍        | 337/2384 [01:10<04:04,  8.38it/s]Running loglikelihood requests:  15%|█▍        | 353/2384 [01:12<04:00,  8.43it/s]Running loglikelihood requests:  15%|█▌        | 369/2384 [01:14<03:57,  8.47it/s]Running loglikelihood requests:  16%|█▌        | 385/2384 [01:16<03:55,  8.50it/s]Running loglikelihood requests:  17%|█▋        | 401/2384 [01:18<03:52,  8.52it/s]Running loglikelihood requests:  17%|█▋        | 417/2384 [01:19<03:49,  8.55it/s]Running loglikelihood requests:  18%|█▊        | 433/2384 [01:21<03:47,  8.59it/s]Running loglikelihood requests:  19%|█▉        | 449/2384 [01:23<03:44,  8.61it/s]Running loglikelihood requests:  20%|█▉        | 465/2384 [01:25<03:41,  8.65it/s]Running loglikelihood requests:  20%|██        | 481/2384 [01:27<03:39,  8.68it/s]Running loglikelihood requests:  21%|██        | 497/2384 [01:29<03:36,  8.71it/s]Running loglikelihood requests:  22%|██▏       | 513/2384 [01:30<03:34,  8.73it/s]Running loglikelihood requests:  22%|██▏       | 529/2384 [01:32<03:30,  8.80it/s]Running loglikelihood requests:  23%|██▎       | 545/2384 [01:34<03:27,  8.86it/s]Running loglikelihood requests:  24%|██▎       | 561/2384 [01:36<03:24,  8.90it/s]Running loglikelihood requests:  24%|██▍       | 577/2384 [01:38<03:22,  8.93it/s]Running loglikelihood requests:  25%|██▍       | 593/2384 [01:39<03:19,  8.97it/s]Running loglikelihood requests:  26%|██▌       | 609/2384 [01:41<03:17,  9.00it/s]Running loglikelihood requests:  26%|██▌       | 625/2384 [01:43<03:14,  9.03it/s]Running loglikelihood requests:  27%|██▋       | 641/2384 [01:45<03:12,  9.05it/s]Running loglikelihood requests:  28%|██▊       | 657/2384 [01:46<03:10,  9.07it/s]Running loglikelihood requests:  28%|██▊       | 673/2384 [01:48<03:07,  9.11it/s]Running loglikelihood requests:  29%|██▉       | 689/2384 [01:50<03:05,  9.15it/s]Running loglikelihood requests:  30%|██▉       | 705/2384 [01:52<03:02,  9.18it/s]Running loglikelihood requests:  30%|███       | 721/2384 [01:53<03:00,  9.21it/s]Running loglikelihood requests:  31%|███       | 737/2384 [01:55<02:58,  9.24it/s]Running loglikelihood requests:  32%|███▏      | 753/2384 [01:57<02:55,  9.27it/s]Running loglikelihood requests:  32%|███▏      | 769/2384 [01:58<02:53,  9.30it/s]Running loglikelihood requests:  33%|███▎      | 785/2384 [02:00<02:51,  9.31it/s]Running loglikelihood requests:  34%|███▎      | 801/2384 [02:02<02:49,  9.36it/s]Running loglikelihood requests:  34%|███▍      | 817/2384 [02:04<02:46,  9.39it/s]Running loglikelihood requests:  35%|███▍      | 833/2384 [02:05<02:44,  9.42it/s]Running loglikelihood requests:  36%|███▌      | 849/2384 [02:07<02:42,  9.45it/s]Running loglikelihood requests:  36%|███▋      | 869/2384 [02:09<02:27, 10.25it/s]Running loglikelihood requests:  37%|███▋      | 885/2384 [02:10<02:28, 10.10it/s]Running loglikelihood requests:  38%|███▊      | 901/2384 [02:12<02:28, 10.00it/s]Running loglikelihood requests:  38%|███▊      | 917/2384 [02:13<02:27,  9.94it/s]Running loglikelihood requests:  39%|███▉      | 933/2384 [02:15<02:26,  9.90it/s]Running loglikelihood requests:  40%|███▉      | 949/2384 [02:17<02:25,  9.89it/s]Running loglikelihood requests:  40%|████      | 965/2384 [02:18<02:23,  9.88it/s]Running loglikelihood requests:  41%|████      | 981/2384 [02:20<02:21,  9.92it/s]Running loglikelihood requests:  42%|████▏     | 997/2384 [02:22<02:19,  9.95it/s]Running loglikelihood requests:  42%|████▏     | 1013/2384 [02:23<02:17,  9.97it/s]Running loglikelihood requests:  43%|████▎     | 1029/2384 [02:25<02:15,  9.99it/s]Running loglikelihood requests:  44%|████▍     | 1045/2384 [02:26<02:13, 10.01it/s]Running loglikelihood requests:  45%|████▍     | 1061/2384 [02:28<02:11, 10.05it/s]Running loglikelihood requests:  45%|████▌     | 1077/2384 [02:29<02:09, 10.08it/s]Running loglikelihood requests:  46%|████▌     | 1093/2384 [02:31<02:07, 10.15it/s]Running loglikelihood requests:  47%|████▋     | 1109/2384 [02:33<02:03, 10.29it/s]Running loglikelihood requests:  47%|████▋     | 1125/2384 [02:34<02:00, 10.43it/s]Running loglikelihood requests:  48%|████▊     | 1141/2384 [02:35<01:57, 10.57it/s]Running loglikelihood requests:  49%|████▊     | 1157/2384 [02:37<01:54, 10.71it/s]Running loglikelihood requests:  49%|████▉     | 1173/2384 [02:38<01:51, 10.86it/s]Running loglikelihood requests:  50%|████▉     | 1189/2384 [02:40<01:43, 11.52it/s]Running loglikelihood requests:  51%|█████     | 1205/2384 [02:40<01:26, 13.64it/s]Running loglikelihood requests:  51%|█████     | 1221/2384 [02:41<01:14, 15.68it/s]Running loglikelihood requests:  52%|█████▏    | 1237/2384 [02:42<01:05, 17.60it/s]Running loglikelihood requests:  53%|█████▎    | 1253/2384 [02:42<00:58, 19.28it/s]Running loglikelihood requests:  53%|█████▎    | 1269/2384 [02:43<00:53, 21.00it/s]Running loglikelihood requests:  54%|█████▍    | 1285/2384 [02:43<00:49, 22.41it/s]Running loglikelihood requests:  55%|█████▍    | 1301/2384 [02:44<00:45, 23.70it/s]Running loglikelihood requests:  55%|█████▌    | 1317/2384 [02:45<00:43, 24.72it/s]Running loglikelihood requests:  56%|█████▌    | 1333/2384 [02:45<00:41, 25.50it/s]Running loglikelihood requests:  57%|█████▋    | 1349/2384 [02:46<00:39, 26.10it/s]Running loglikelihood requests:  57%|█████▋    | 1365/2384 [02:46<00:38, 26.64it/s]Running loglikelihood requests:  58%|█████▊    | 1381/2384 [02:47<00:37, 27.07it/s]Running loglikelihood requests:  59%|█████▊    | 1397/2384 [02:47<00:35, 27.43it/s]Running loglikelihood requests:  59%|█████▉    | 1413/2384 [02:48<00:35, 27.72it/s]Running loglikelihood requests:  60%|█████▉    | 1429/2384 [02:48<00:33, 28.19it/s]Running loglikelihood requests:  61%|██████    | 1445/2384 [02:49<00:32, 28.51it/s]Running loglikelihood requests:  61%|██████▏   | 1461/2384 [02:50<00:32, 28.77it/s]Running loglikelihood requests:  62%|██████▏   | 1477/2384 [02:50<00:31, 28.99it/s]Running loglikelihood requests:  63%|██████▎   | 1493/2384 [02:51<00:30, 29.19it/s]Running loglikelihood requests:  63%|██████▎   | 1509/2384 [02:51<00:29, 29.33it/s]Running loglikelihood requests:  64%|██████▍   | 1525/2384 [02:52<00:29, 29.51it/s]Running loglikelihood requests:  65%|██████▍   | 1541/2384 [02:52<00:28, 29.67it/s]Running loglikelihood requests:  65%|██████▌   | 1557/2384 [02:53<00:27, 29.78it/s]Running loglikelihood requests:  66%|██████▌   | 1573/2384 [02:53<00:27, 29.86it/s]Running loglikelihood requests:  67%|██████▋   | 1589/2384 [02:54<00:26, 29.92it/s]Running loglikelihood requests:  67%|██████▋   | 1605/2384 [02:54<00:25, 29.98it/s]Running loglikelihood requests:  68%|██████▊   | 1621/2384 [02:55<00:25, 30.06it/s]Running loglikelihood requests:  69%|██████▊   | 1637/2384 [02:55<00:24, 30.15it/s]Running loglikelihood requests:  69%|██████▉   | 1653/2384 [02:56<00:24, 30.27it/s]Running loglikelihood requests:  70%|███████   | 1669/2384 [02:56<00:22, 31.11it/s]Running loglikelihood requests:  71%|███████   | 1685/2384 [02:57<00:22, 31.72it/s]Running loglikelihood requests:  71%|███████▏  | 1701/2384 [02:57<00:21, 32.18it/s]Running loglikelihood requests:  72%|███████▏  | 1717/2384 [02:58<00:20, 32.56it/s]Running loglikelihood requests:  73%|███████▎  | 1733/2384 [02:58<00:19, 32.83it/s]Running loglikelihood requests:  73%|███████▎  | 1749/2384 [02:59<00:19, 33.04it/s]Running loglikelihood requests:  74%|███████▍  | 1765/2384 [02:59<00:18, 33.22it/s]Running loglikelihood requests:  75%|███████▍  | 1781/2384 [03:00<00:18, 33.35it/s]Running loglikelihood requests:  75%|███████▌  | 1797/2384 [03:00<00:17, 33.44it/s]Running loglikelihood requests:  76%|███████▌  | 1813/2384 [03:01<00:17, 33.52it/s]Running loglikelihood requests:  77%|███████▋  | 1829/2384 [03:01<00:16, 33.59it/s]Running loglikelihood requests:  77%|███████▋  | 1845/2384 [03:02<00:16, 33.65it/s]Running loglikelihood requests:  78%|███████▊  | 1861/2384 [03:02<00:15, 33.73it/s]Running loglikelihood requests:  79%|███████▊  | 1877/2384 [03:03<00:14, 33.84it/s]Running loglikelihood requests:  79%|███████▉  | 1893/2384 [03:03<00:14, 33.93it/s]Running loglikelihood requests:  80%|████████  | 1909/2384 [03:04<00:13, 33.97it/s]Running loglikelihood requests:  81%|████████  | 1925/2384 [03:04<00:13, 34.05it/s]Running loglikelihood requests:  81%|████████▏ | 1941/2384 [03:05<00:12, 34.16it/s]Running loglikelihood requests:  82%|████████▏ | 1957/2384 [03:05<00:12, 34.22it/s]Running loglikelihood requests:  83%|████████▎ | 1973/2384 [03:05<00:11, 34.29it/s]Running loglikelihood requests:  83%|████████▎ | 1989/2384 [03:06<00:11, 34.32it/s]Running loglikelihood requests:  84%|████████▍ | 2005/2384 [03:06<00:11, 34.40it/s]Running loglikelihood requests:  85%|████████▍ | 2021/2384 [03:07<00:10, 34.84it/s]Running loglikelihood requests:  85%|████████▌ | 2037/2384 [03:07<00:09, 35.16it/s]Running loglikelihood requests:  86%|████████▌ | 2053/2384 [03:08<00:09, 35.44it/s]Running loglikelihood requests:  87%|████████▋ | 2069/2384 [03:08<00:08, 35.62it/s]Running loglikelihood requests:  87%|████████▋ | 2085/2384 [03:09<00:08, 35.80it/s]Running loglikelihood requests:  88%|████████▊ | 2101/2384 [03:09<00:07, 35.94it/s]Running loglikelihood requests:  89%|████████▉ | 2117/2384 [03:09<00:07, 36.05it/s]Running loglikelihood requests:  89%|████████▉ | 2133/2384 [03:10<00:06, 36.17it/s]Running loglikelihood requests:  90%|█████████ | 2153/2384 [03:10<00:05, 39.13it/s]Running loglikelihood requests:  91%|█████████ | 2169/2384 [03:11<00:05, 38.55it/s]Running loglikelihood requests:  92%|█████████▏| 2185/2384 [03:11<00:05, 38.19it/s]Running loglikelihood requests:  92%|█████████▏| 2201/2384 [03:12<00:04, 37.94it/s]Running loglikelihood requests:  93%|█████████▎| 2217/2384 [03:12<00:04, 37.82it/s]Running loglikelihood requests:  94%|█████████▎| 2233/2384 [03:12<00:03, 37.76it/s]Running loglikelihood requests:  94%|█████████▍| 2249/2384 [03:13<00:03, 37.74it/s]Running loglikelihood requests:  95%|█████████▌| 2265/2384 [03:13<00:03, 38.20it/s]Running loglikelihood requests:  96%|█████████▌| 2281/2384 [03:14<00:02, 38.55it/s]Running loglikelihood requests:  96%|█████████▋| 2297/2384 [03:14<00:02, 38.86it/s]Running loglikelihood requests:  97%|█████████▋| 2313/2384 [03:15<00:01, 39.12it/s]Running loglikelihood requests:  98%|█████████▊| 2329/2384 [03:15<00:01, 39.40it/s]Running loglikelihood requests:  98%|█████████▊| 2345/2384 [03:15<00:00, 40.76it/s]Running loglikelihood requests:  99%|█████████▉| 2361/2384 [03:16<00:00, 42.36it/s]Running loglikelihood requests: 100%|█████████▉| 2377/2384 [03:16<00:00, 50.00it/s]Running loglikelihood requests: 100%|██████████| 2384/2384 [03:16<00:00, 12.14it/s]
+2024-11-08:16:25:59,747 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:00,616 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:01,404 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:02,217 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:02,990 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:03,803 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:04,586 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:05,388 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:06,181 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:07,000 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:07,795 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:08,869 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:09,637 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:10,434 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:11,202 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:12,005 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:12,796 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:13,555 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:14,319 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:15,092 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:15,852 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:16,618 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:17,698 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:18,583 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:19,371 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:20,158 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:20,925 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:21,685 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:22,425 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:23,201 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:23,991 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:24,739 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:25,518 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:26,455 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:27,220 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:27,998 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:28,787 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:29,573 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:30,350 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:31,150 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:31,944 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:32,742 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:33,541 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:34,366 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:35,181 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:35,947 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:36,902 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:37,684 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:38,439 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:39,219 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:40,037 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:40,813 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:41,552 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:42,329 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:43,081 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:43,830 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:44,659 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:45,468 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:46,276 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:47,211 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:47,973 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:48,773 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:49,627 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:50,462 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:51,227 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:52,015 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:52,828 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:53,614 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:54,378 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:55,157 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:55,991 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:56,996 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:57,797 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:58,623 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:26:59,411 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:00,256 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:01,037 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:01,826 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:02,746 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:03,540 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:04,456 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:05,256 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:06,058 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:07,038 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:07,843 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:08,640 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:09,470 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:10,309 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:11,122 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:11,962 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:12,752 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:13,586 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:14,420 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:15,217 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:16,041 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:17,085 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:17,901 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:18,703 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:19,527 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:20,310 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:21,082 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:21,887 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:22,742 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:23,563 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:24,390 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:25,210 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:26,267 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:27,078 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:27,865 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:28,622 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:29,426 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:30,199 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:30,965 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:31,736 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:32,515 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:33,290 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:34,084 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:35,131 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:35,926 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:36,746 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:37,576 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:38,405 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:39,193 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:39,979 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:40,789 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:41,598 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:42,367 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:43,137 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:44,135 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:44,933 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:45,726 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:46,535 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:47,352 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:48,140 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:48,942 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:49,710 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:50,540 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:51,375 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:52,169 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:53,203 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:53,991 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:54,785 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:55,590 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:56,373 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:57,144 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:57,925 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:58,677 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:27:59,552 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:00,340 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:01,125 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:02,117 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:02,913 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:03,673 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:04,472 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:05,318 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:06,102 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:06,902 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:07,699 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:08,491 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:09,312 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:10,108 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:10,900 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:11,692 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:12,655 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:13,419 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:14,205 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:15,007 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:15,805 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:16,607 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:17,414 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:18,188 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:18,990 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:19,798 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:20,589 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:21,399 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:22,179 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:23,129 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:23,922 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:24,724 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:25,519 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:26,319 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:27,085 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:27,879 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:28,681 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:29,473 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:30,285 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:31,054 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:31,830 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:32,785 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:33,588 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:34,353 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:35,148 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:35,962 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:36,725 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:37,491 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:38,258 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:39,057 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:39,844 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:40,643 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:41,454 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:42,458 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:43,259 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:44,036 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:44,893 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:45,711 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:46,508 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:47,302 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:48,077 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:48,851 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:49,634 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:50,439 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:51,331 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:52,310 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:53,092 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:53,903 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:54,673 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:55,467 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:56,245 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:57,110 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:57,893 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:58,670 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:28:59,471 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:00,281 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:01,296 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:02,099 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:02,900 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:03,696 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:04,502 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:05,322 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:06,112 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:06,915 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:07,757 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:08,550 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:09,366 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:10,630 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:11,428 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:12,228 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:13,032 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:13,847 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:14,661 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:15,467 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:16,244 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:17,072 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:17,884 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:18,661 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:19,686 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:20,467 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:21,246 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:22,038 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:22,874 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:23,646 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:24,461 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:25,245 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:26,035 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:26,805 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:27,573 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:28,561 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:29,369 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:30,164 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:30,965 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:31,776 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:32,573 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:33,367 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:34,197 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:35,005 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:35,853 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:36,652 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:37,678 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:38,482 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:39,265 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:40,024 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:40,803 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:41,582 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:42,402 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:43,182 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:43,976 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:44,773 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:45,540 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:46,323 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:47,131 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:48,113 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:48,941 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:49,761 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:50,542 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:51,346 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:52,235 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:53,023 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:53,817 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:54,623 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:55,467 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:56,259 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:57,058 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:57,875 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:58,878 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:29:59,693 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:30:00,527 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:30:01,433 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:30:02,284 INFO     [rouge_scorer.py:83] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2024-11-08:16:30:08,135 INFO     [evaluation_tracker.py:269] Output path not provided, skipping saving results aggregated
+Passed argument batch_size = auto:1. Detecting largest batch size
+Determined largest batch size: 4
+hf (pretrained=meta-llama/Llama-2-7b-chat-hf,dtype=float16,low_cpu_mem_usage=True,trust_remote_code=True), gen_kwargs: (None), limit: None, num_fewshot: 1, batch_size: auto (4)
+|    Tasks    |Version|Filter|n-shot|  Metric  |   |Value |   |Stderr|
+|-------------|-------|------|-----:|----------|---|-----:|---|-----:|
+|mcqa4op      |Yaml   |none  |     1|acc       |↑  |0.3389|±  |0.0275|
+|             |       |none  |     1|acc_norm  |↑  |0.3389|±  |0.0275|
+|medcot4op    |Yaml   |none  |     1|acc       |↑  |0.5906|±  |0.0285|
+|             |       |none  |     1|acc_norm  |↑  |0.5906|±  |0.0285|
+|medexplain4op|Yaml   |none  |     0|bert_score|↑  |0.8335|±  |0.0007|
+|             |       |none  |     0|bleu      |↑  |0.2956|±  |0.0034|
+|             |       |none  |     0|f1        |↑  |0.3596|±  |0.0029|
+|             |       |none  |     0|rouge_l   |↑  |0.1827|±  |0.0014|
+

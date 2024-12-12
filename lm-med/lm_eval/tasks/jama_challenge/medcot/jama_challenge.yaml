@@ -1,0 +1,26 @@
+tag: jama_challenge
+task: medcot_jama
+dataset_path: JesseLiu/Jama_challenge
+output_type: multiple_choice
+fewshot_split: validation
+test_split: test
+num_fewshot: 3
+doc_to_text: !function medcot.doc_to_text
+doc_to_target: !function medcot.doc_to_target
+doc_to_choice: [ 'A','B','C','D']
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+  # - metric: chrf
+  #   aggregation: mean
+  #   higher_is_better: true
+  # - metric: ter
+  #   aggregation: mean
+  #   higher_is_better: true
+  # - metric: perplexity
+  #   aggregation: weighted_perplexity
+  #   higher_is_better: true

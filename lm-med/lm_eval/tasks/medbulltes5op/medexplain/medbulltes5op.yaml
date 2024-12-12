@@ -1,0 +1,39 @@
+tag: medbulltes5op
+task: medexplain5op
+dataset_path: JesseLiu/medbulltes5op
+output_type: generate_until
+fewshot_split: validation
+test_split: test
+num_fewshot: 0
+doc_to_text: !function medexplain.doc_to_text
+doc_to_target: !function medexplain.doc_to_target
+process_results: !function medexplain.process_results
+metric_list:
+  - metric: f1
+    aggregation: mean
+    higher_is_better: true
+  - metric: bleu
+    aggregation: mean
+    higher_is_better: true
+  - metric: rouge_l
+    aggregation: mean
+    higher_is_better: true
+  - metric: bert_score
+    aggregation: mean
+    higher_is_better: true
+generation_kwargs:
+  max_length: 2048
+  do_sample: false
+  until:
+    - "QUESTION:"
+
+  # - metric: chrf
+  #   aggregation: mean
+  #   higher_is_better: true
+  # - metric: ter
+  #   aggregation: mean
+  #   higher_is_better: true
+  # - metric: perplexity
+  #   aggregation: weighted_perplexity
+  #   higher_is_better: true
+
