@@ -178,3 +178,5 @@ cython_debug/
 
 # maze generation
 /maze_generation/MedQA_Maze/*
+/maze_generation/output/*
+/maze_generation/Trouble_Makers/*
