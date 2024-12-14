@@ -62,6 +62,17 @@ def get_args() -> argparse.Namespace:
           type=int,
           help="Input the number of examples you want to test",
     )
+    parser.add_argument(
+          "--config",
+          default=None,
+          type=str,
+          help="Provide the config file path",
+    )
+    parser.add_argument(
+          "--save_config",
+          action="store_true",
+          help="Whether you want to save the config information",
+    )
 
     return parser.parse_args()
 
@@ -76,22 +87,34 @@ def game_start(args) -> None:
     folder_path = f"./{args.output_path}/{args.task_type}"
     os.makedirs(folder_path, exist_ok=True)
     
-    output_file = f"./{folder_path}/{args.model}_{pretrained_name}_{lora_name}_{args.num_fewshot}_{args.confusion_level}"
+    output_file_path = f"./{folder_path}/{args.model}_{pretrained_name}_{lora_name}_{args.num_fewshot}_{args.confusion_level}"
     if args.limit is not None:
-        output_file += f"_{args.limit}"
-    output_file += ".jsonl"
+        output_file_path += f"_{args.limit}"
+    output_file = output_file_path + ".jsonl"
     
     # load model
     model, tokenizer = init_model(model_name=args.model, model_args=args.model_args, task_name=args.task_name, lora_weight=args.lora_weight)
 
     # load dataset
-    maze_data = MazeDatasetProcessor(confusion_level=args.confusion_level)
+    if args.config != None:
+        config_dict = json.load(open(f"./config/{args.config}.json", "r"))
+        config_flag = True
+    else:
+        config_dict = {}
+        config_flag = False
+
+    maze_data = MazeDatasetProcessor(config_dict, config_flag, confusion_level=args.confusion_level)
     if args.task_type == 'one_round':
-        dataset = maze_data.get_oneround()
+        dataset, config_file = maze_data.get_oneround()
     elif args.task_type == 'multi_round':
-        dataset = maze_data.get_multiround()
+        dataset, config_file = maze_data.get_multiround()
     else:
         print("Task Type must be 'one_round' or 'multi_round'")
+
+    if args.save_config == True:
+        config_file_path = f"./config/cl_{args.confusion_level}" + ".json"
+        json.dump(config_file, open(config_file_path, "w"), indent=4)
+        print(f"Save Config File in {config_file_path}")
     
     if args.limit != None:
         dataset = dataset.select(range(args.limit))

@@ -6,18 +6,22 @@ from datasets import load_dataset
 
 
 class MazeDatasetProcessor:
-  def __init__(self, confusion_level: int = 8):
+  def __init__(self, config_dict, config_flag, confusion_level=8):
       self.confusion_level = confusion_level
       self.shot_file = "./shot_data/shot.json"
-      self.trouble_maker_file = "./shot_data/trouble_maker.txt"
+      # self.trouble_maker_file = "./shot_data/trouble_maker.txt"
+      self.trouble_maker_file = "./shot_data/dealed_response.jsonl"
 
-      self.trouble_maker = [line.strip() for line in open(self.trouble_maker_file, 'r')]
+      # self.trouble_maker = [line.strip() for line in open(self.trouble_maker_file, 'r')]
+      self.trouble_maker = [json.loads(line.strip()) for line in open(self.trouble_maker_file, "r")]
       self.shots = json.load(open(self.shot_file, "r"))
 
       self.female_pronouns = ['she', 'her', 'hers', 'herself', 'woman']
       self.male_pronouns = ['he', 'him', 'his', 'himself', 'man']
+      self.config_dict = config_dict
+      self.config_flag = config_flag
 
-      self.female_sentences, self.male_sentences, self.other_sentences = self._org_trouble_make()
+      # self.female_sentences, self.male_sentences, self.other_sentences = self._org_trouble_make()
 
    
   def _org_trouble_make(self):
@@ -36,16 +40,16 @@ class MazeDatasetProcessor:
       
       return female_sentences, male_sentences, other_sentences
   
-  def create_maze(self, context, groundtruth_zoo):
-    if any(answer in context for answer in self.female_pronouns):
-       trouble_maker = self.female_sentences + self.other_sentences
-    else:
-       trouble_maker = self.male_sentences + self.other_sentences
-    
+  def read_exist_tm(self, line_idx):
+     return self.config_dict[str(line_idx)]
+  
+  def create_maze(self, context, groundtruth_zoo, line_idx):
     if self.confusion_level != 0:
-        choose_idx = [random.randint(0, len(trouble_maker) - 1) for _ in range(self.confusion_level)]
-        choose_sentence = [trouble_maker[i] for i in choose_idx]
-
+        if self.config_flag == False:
+            choose_sentence = self.get_troublemaker(context, line_idx)
+        else:
+            choose_sentence = self.read_exist_tm(line_idx)
+    
         if len(groundtruth_zoo) > len(choose_sentence):
           muddy_zoo = groundtruth_zoo.copy()
           trouble_index = sorted(random.sample(range(len(groundtruth_zoo) + 1), len(choose_sentence)))
@@ -73,8 +77,8 @@ class MazeDatasetProcessor:
 
     
 
-  def oneround_prompt(self, line):
-      muddy_maze, truth_idx, new_trouble_index = self.create_maze(line['context'], line['groundtruth_zoo'])
+  def oneround_prompt(self, line, idx):
+      muddy_maze, truth_idx, new_trouble_index = self.create_maze(line['context'], line['groundtruth_zoo'], idx)
       tagged_maze = "\n".join([f"{i}: {sentence}" for i, sentence in enumerate(muddy_maze)])
       line['prompt'] = f"""Here is the background information: "{line['prerequisit']}"
 Question: {line['question']}
@@ -91,8 +95,8 @@ ANSWER:
 
       return line
   
-  def muliround_prompt(self, line):
-      muddy_maze, truth_idx, new_trouble_index = self.create_maze(line['context'], line['groundtruth_zoo'])
+  def muliround_prompt(self, line, idx):
+      muddy_maze, truth_idx, new_trouble_index = self.create_maze(line['context'], line['groundtruth_zoo'], idx)
       tagged_maze = "\n".join([f"{i}: {sentence}" for i, sentence in enumerate(muddy_maze)])
       line['prompt'] = f"""Here is the background information: "{line['prerequisit']}"
 Question: {line['question']}
@@ -109,12 +113,23 @@ ANSWER:"""
       return line
 
   def get_oneround(self):
-    dataset = load_dataset("JesseLiu/MedQA_Maze", split="test")
-    return dataset.map(self.oneround_prompt, load_from_cache_file=False)
+      dataset = load_dataset("JesseLiu/MedQA_Maze", split="test")
+      dataset = dataset.map(
+          lambda example, index: self.oneround_prompt(example, index),
+          with_indices=True,
+          load_from_cache_file=False
+      )
+      return dataset, self.config_dict
+
 
   def get_multiround(self):
-    dataset = load_dataset("JesseLiu/MedQA_Maze", split="test")
-    return dataset.map(self.muliround_prompt, load_from_cache_file=False)
+      dataset = load_dataset("JesseLiu/MedQA_Maze", split="test")
+      dataset = dataset.map(
+          lambda example, index: self.muliround_prompt(example, index),
+          with_indices=True,
+          load_from_cache_file=False
+      )
+      return dataset, self.config_dict
   
   def get_fewshot(self, fewshot_num=3):
     extract_shots = list(self.shots.values())[:fewshot_num]
@@ -132,3 +147,56 @@ You have {len(line['groundtruth_zoo'])} attempts in total to make a selection; t
 Provide only the indices of the relevant sentences in brackets formatted like this: [ ]
 ANSWER:"""
     return prompt
+  
+  def replace_pronouns(self, context, direction="MF"):
+      if direction == "MF":
+          pronoun_map = dict(zip(self.male_pronouns, self.female_pronouns))
+      elif direction == "FM":
+          pronoun_map = dict(zip(self.female_pronouns, self.male_pronouns))
+      else:
+          raise ValueError("Invalid direction. Use 'MF' or 'FM'.")
+      
+      words = context.split()
+      replaced_words = [
+          pronoun_map[word.lower()] if word.lower() in pronoun_map else word
+          for word in words
+      ]
+      
+      final_words = [
+          word.capitalize() if word_original[0].isupper() else word
+          for word, word_original in zip(replaced_words, words)
+      ]
+      
+      return ' '.join(final_words)
+  
+  def effect_dict(self, d):
+    """Check if a dictionary is empty or all its values are empty lists."""
+    return not d or all(isinstance(v, list) and not v for v in d.values())
+  
+  def get_troublemaker(self, context, line_idx):
+    trouble_makers = []
+    choose_idx = [random.choice([i for i in range(len(self.trouble_maker)) if i != line_idx])
+              for _ in range(self.confusion_level)]
+
+    if any(pronoun in context.split() for pronoun in self.female_pronouns):        
+      for i in choose_idx:
+        while self.effect_dict(self.trouble_maker[i]):
+          i = random.choice([idx for idx in range(len(self.trouble_maker)) if idx not in choose_idx])
+        line_keys = self.trouble_maker[i].keys()
+        selected_key = random.choice([key for key in line_keys if self.trouble_maker[i][key] != []])
+        selected_string = self.replace_pronouns(random.choice(self.trouble_maker[i][selected_key]), direction="MF")
+        trouble_makers.append(selected_string)
+    else:
+      for i in choose_idx:
+        while self.effect_dict(self.trouble_maker[i]):
+          i = random.choice([idx for idx in range(len(self.trouble_maker)) if idx not in choose_idx])
+        line_keys = self.trouble_maker[i].keys()
+        selected_key = random.choice([key for key in line_keys if self.trouble_maker[i][key] != []])
+        selected_string = self.replace_pronouns(random.choice(self.trouble_maker[i][selected_key]), direction="FM")
+        trouble_makers.append(selected_string)
+    
+    self.config_dict[line_idx] = trouble_makers
+    return trouble_makers
+
+        
+     

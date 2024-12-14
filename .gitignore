@@ -169,9 +169,10 @@ cython_debug/
 /init_trail/MedQA_Maze/*
 
 # pipeline
-/log/*
-/output/*
-/shotdata/*
+/pipeline/log/*
+/pipeline/output/*
+/pipeline/shotdata/*
+/pipeline/config/*
 
 # reasoning_generation/data
 /reasoning_generation/data/*
