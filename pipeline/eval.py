@@ -2,12 +2,20 @@ import os
 import re
 import ast
 import json
+import argparse
 import numpy as np
 from utils import *
 
+parser = argparse.ArgumentParser(description="Eval the results")
+parser.add_argument('--task', type=str, required=True, help='task type')
+args = parser.parse_args()
 
-FOLDER_PATH, task = "./output/one_round", "one_round"
-# FOLDER_PATH, task= "./output/multi_round", "multi_round"
+if args.task == "one_round":
+    FOLDER_PATH, task = "./output/one_round", "one_round"
+elif args.task == "multi_round":
+    FOLDER_PATH, task= "./output/multi_round", "multi_round"
+else:
+    print("Plz pass the correct task type in [one_round, multi_round]")
 
 input_files = [f for f in os.listdir(FOLDER_PATH) if not f.startswith(".")]
 
