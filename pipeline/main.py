@@ -118,6 +118,11 @@ def game_start(args) -> None:
     
     if args.limit != None:
         dataset = dataset.select(range(args.limit))
+    
+    # detect file exits or not
+    if os.path.exists(output_file):
+        exits_line = sum(1 for line in open(output_file, "r", encoding="utf-8"))
+        dataset = dataset.select(range(exits_line, len(dataset)))
 
     if model == "openai":
         if args.task_type == 'one_round':
