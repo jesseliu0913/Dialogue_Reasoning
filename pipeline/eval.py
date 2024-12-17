@@ -49,7 +49,7 @@ def calculate_correct_positions(truth, predicted):
 
 
 for input_f in input_files:
-    if "Qwen2.5-3B-Instruct" in input_f:
+    if "Qwen2.5-1.5B-Instruct" in input_f:
         print(input_f)
         precision_scores = []
         recall_scores = []
