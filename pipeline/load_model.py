@@ -15,6 +15,8 @@ def init_model(model_name: str, model_args: str, task_name: str, lora_weight=Non
       tokenizer = LlamaTokenizer.from_pretrained(model_weight)
     elif task_name == "chatgpt":
       tokenizer = None
+    elif lora_weight != None:
+      tokenizer = AutoTokenizer.from_pretrained(lora_weight)
     else:
       tokenizer = AutoTokenizer.from_pretrained(model_weight)
 
