@@ -15,6 +15,8 @@ def init_model(model_name: str, model_args: str, task_name: str, lora_weight=Non
       tokenizer = LlamaTokenizer.from_pretrained(model_weight)
     elif task_name == "chatgpt":
       tokenizer = None
+    elif lora_weight != None:
+      tokenizer = AutoTokenizer.from_pretrained(lora_weight)
     else:
       tokenizer = AutoTokenizer.from_pretrained(model_weight)
 
@@ -24,11 +26,10 @@ def init_model(model_name: str, model_args: str, task_name: str, lora_weight=Non
     #     if lora_weight != None:
     #         model = PeftModel.from_pretrained(model, lora_weight)
     if model_name ==  "hf":
-        if lora_weight == None:
-            model = AutoModelForCausalLM.from_pretrained(model_weight, torch_dtype=torch.bfloat16, device_map="auto", low_cpu_mem_usage=True, trust_remote_code=True)
-        else:
+        if lora_weight != None:
             model = AutoModelForCausalLM.from_pretrained(lora_weight, torch_dtype=torch.bfloat16, device_map="auto", low_cpu_mem_usage=True, trust_remote_code=True)
-            # model.to('cuda')
+        else:
+            model = AutoModelForCausalLM.from_pretrained(model_weight, torch_dtype=torch.bfloat16, device_map="auto", low_cpu_mem_usage=True, trust_remote_code=True)
        
 
     elif model_name == "openai":
