@@ -20,3 +20,4 @@
 
 ## File Recording:
 1. analysis_discuss: extract the other disease in the discussion part
+2. cal_diagnose:
