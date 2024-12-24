@@ -181,3 +181,8 @@ cython_debug/
 /maze_generation/MedQA_Maze/*
 /maze_generation/output/*
 /maze_generation/Trouble_Makers/*
+
+# case report
+/case_report/input/*
+/case_report/output/*
+/case_report/pkl_files/*

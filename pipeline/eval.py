@@ -49,7 +49,7 @@ def calculate_correct_positions(truth, predicted):
 
 
 for input_f in input_files:
-    if "Qwen2.5-1.5B-Instruct" in input_f:
+    if "Mistral-7B-Instruct-v0.3" in input_f:
         print(input_f)
         precision_scores = []
         recall_scores = []
@@ -61,7 +61,10 @@ for input_f in input_files:
         file_lst = open(file_path, 'r')
         if task == "one_round":
             for idx, line in enumerate(file_lst):
-                input_data = json.loads(line)
+                try:
+                    input_data = json.loads(line)
+                except json.JSONDecodeError as e:
+                    print(f"Skipping line {idx} due to JSONDecodeError: {e}")
                 ground_truth = set(input_data['truth_idx'])
                 trouble_maker = set(input_data['trouble_idx'])
                 total_list = ground_truth | trouble_maker
