@@ -2,7 +2,7 @@ import os
 import json
 
 
-input_file = open("/Users/liuzijie/Desktop/LZJ/clinic_dg/output/qualified_stage1/oneround.jsonl", 'r')
+input_file = open("./output/qualified_stage1/oneround.jsonl", 'r')
 diagnose_lst = []
 for line in input_file:
     line_dict = json.loads(line)
