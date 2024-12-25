@@ -19,5 +19,6 @@
 ---
 
 ## File Recording:
-1. analysis_discuss: extract the other disease in the discussion part
-2. cal_diagnose:
+1. analysis_discuss.py: extract the other disease in the discussion part
+2. ./output/stage1_dialogue/cleaned_dialogue.jsonl: raw patient doctor dialogue dataset
+3. 
