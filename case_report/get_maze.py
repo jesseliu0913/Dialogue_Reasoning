@@ -1,8 +1,12 @@
 import os
+import re
 import json
-from transformers import pipeline
+from transformers import AutoTokenizer, AutoModelForCausalLM
 
-pipe = pipeline("text-generation", model="meta-llama/Llama-3.2-3B-Instruct", max_new_tokens=1000)
+
+tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
+model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.2-3B-Instruct")
+model = model.to("cuda")
 
 INPUT_FOLDER = "./input/case_report"
 FULL_FOLDER = "./input/PMC_patient_data"
@@ -30,7 +34,7 @@ for pid in q_pid:
     for c_key in file_content:
         length = len(file_content[c_key].split("."))
         if length >= 5:
-          print(file_content[c_key])
+          # print(file_content[c_key])
           GENERAL_QUESTION = f"""
             Question: Describe the patient personal information.
             Question: Describe the patient experience.
@@ -48,19 +52,32 @@ for pid in q_pid:
             “Question: \nAnswer: \n\nQuestion: \nAnswer: ”
             {file_content[c_key]}
             """
-          messages = [{"role": "user", "content": f"{GENERAL_QUESTION}"}]
-          output = pipe(messages)
-          response = output[0]['generated_text'][1]['content']
-          print(response)
-          
-          user_decision = input("Do you pass this case? (y/n/exit): ").strip().lower()
-          if user_decision == 'n':
+          inputs = tokenizer(GENERAL_QUESTION, return_tensors="pt")
+          input_ids = inputs['input_ids'].to("cuda")
+          attention_mask = inputs['attention_mask'].to("cuda")
+          output_ids = model.generate(input_ids, attention_mask=attention_mask, max_new_tokens=1000, num_return_sequences=1, temperature=0.7)
+
+          output_text = tokenizer.decode(output_ids[0], skip_special_tokens=True)
+          response = output_text.replace(GENERAL_QUESTION, "")
+
+          pattern = r"Question: (.*?)\nAnswer: (.*?)\n"
+          matches = re.findall(pattern, response)
+
+          qa_pairs = [{"Question": match[0], "Answer": match[1]} for match in matches]
+          answer_lst = [match[1] for match in matches if "No" not in match[1]]
+          if len(answer_lst) == 8:
               with open(OUTPUT_FILE, "a") as f_out:
                   json.dump({"pid": pid, "case_content": file_content[c_key], "response": response}, f_out)
                   f_out.write("\n")
-              print("Case not passed and saved. Moving to the next.")
-          elif user_decision == 'exit':
-              print("Exiting the process.")
-              exit()
-          else:
-              print("Case passed. Moving to the next.")
+          
+          # user_decision = input("Do you pass this case? (y/n/exit): ").strip().lower()
+          # if user_decision == 'n':
+          #     with open(OUTPUT_FILE, "a") as f_out:
+          #         json.dump({"pid": pid, "case_content": file_content[c_key], "response": response}, f_out)
+          #         f_out.write("\n")
+          #     print("Case not passed and saved. Moving to the next.")
+          # elif user_decision == 'exit':
+          #     print("Exiting the process.")
+          #     exit()
+          # else:
+          #     print("Case passed. Moving to the next.")
