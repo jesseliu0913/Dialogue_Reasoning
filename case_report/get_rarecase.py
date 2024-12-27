@@ -11,7 +11,7 @@ full_files = [f for f in os.listdir(FULL_FOLDER) if not f.startswith('.')]
 stored_pid = json.load(open("./case_seperate.json", "r"))
 qualified_pid = stored_pid['qualified_pid']
 empty_pid = stored_pid['empty_pid']
-f_write = open("./output/tuning/rare_case.jsonl", 'w')
+f_write = open("./output/tuning/rare_case.jsonl", 'a+')
 count = 0
 for full_f in full_files:
   pid = full_f.split(".")[0]
@@ -22,7 +22,8 @@ for full_f in full_files:
   title = soup.find('article-title')
   if "Rare Case" in title.text:
     count += 1
-    case_content = {"pid": pid, "title": title.text}
-    f_write.write(json.dumps(case_content) + '\n')
-  if count == 1000:
+    if count > 1000:
+      case_content = {"pid": pid, "title": title.text}
+      f_write.write(json.dumps(case_content) + '\n')
+  if count == 5000:
     break
