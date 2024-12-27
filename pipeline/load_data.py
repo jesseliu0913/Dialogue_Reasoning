@@ -6,7 +6,7 @@ from datasets import load_dataset
 
 
 class MazeDatasetProcessor:
-  def __init__(self, config_dict, config_flag, confusion_level=8):
+  def __init__(self, config_dict, config_flag, confusion_level=8, task_level='basic'):
       self.confusion_level = confusion_level
       self.shot_file = "./shot_data/shot.json"
       # self.trouble_maker_file = "./shot_data/trouble_maker.txt"
@@ -20,6 +20,8 @@ class MazeDatasetProcessor:
       self.male_pronouns = ['he', 'him', 'his', 'himself', 'man']
       self.config_dict = config_dict
       self.config_flag = config_flag
+
+      self.task_level = task_level
 
       # self.female_sentences, self.male_sentences, self.other_sentences = self._org_trouble_make()
 
@@ -123,7 +125,7 @@ ANSWER:"""
 
 
   def get_multiround(self):
-      dataset = load_dataset("JesseLiu/MedQA_Maze", split="test")
+      dataset = load_dataset("JesseLiu/MedQA_Maze", self.task_level)
       dataset = dataset.map(
           lambda example, index: self.muliround_prompt(example, index),
           with_indices=True,

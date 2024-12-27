@@ -73,6 +73,12 @@ def get_args() -> argparse.Namespace:
           action="store_true",
           help="Whether you want to save the config information",
     )
+    parser.add_argument(
+          "--task_level",
+          default="basic",
+          type=str,
+          help="basic / advance / challenge",
+    )
 
     return parser.parse_args()
 
@@ -103,7 +109,7 @@ def game_start(args) -> None:
         config_dict = {}
         config_flag = False
 
-    maze_data = MazeDatasetProcessor(config_dict, config_flag, confusion_level=args.confusion_level)
+    maze_data = MazeDatasetProcessor(config_dict, config_flag, confusion_level=args.confusion_level, task_level=args.task_level)
     if args.task_type == 'one_round':
         dataset, config_file = maze_data.get_oneround()
     elif args.task_type == 'multi_round':
