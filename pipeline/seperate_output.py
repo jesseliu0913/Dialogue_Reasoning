@@ -2,7 +2,7 @@ import nltk
 import json
 import random
 from datasets import load_dataset
-nltk.download('punkt_tab')
+# nltk.download('punkt_tab')
 import argparse
 
 
@@ -12,7 +12,7 @@ dataset_repo = [
   "JesseLiu/medbulltes4op",
   "JesseLiu/Jama_challenge"
 ]
-test_path = "/playpen/xinyu/jesse/Dialogue_Reasoning/pipeline/MedQA_Maze/all/test.jsonl"
+test_path = "/playpen/xinyu/jesse/Dialogue_Reasoning/maze_generation/MedQA_Maze/all/test.jsonl"
 
 baisc_lst = []
 advanced_lst = []
@@ -38,9 +38,9 @@ for dataset in dataset_repo:
       challenge_lst.append(count)
       count += 1
 
-basic_file = open("/playpen/xinyu/jesse/Dialogue_Reasoning/pipeline/MedQA_Maze/basic/test.jsonl", "a+")
-advance_file = open("/playpen/xinyu/jesse/Dialogue_Reasoning/pipeline/MedQA_Maze/advance/test.jsonl", "a+")
-challenge_file = open("/playpen/xinyu/jesse/Dialogue_Reasoning/pipeline/MedQA_Maze/challenge/test.jsonl", "a+")
+basic_file = open("/playpen/xinyu/jesse/Dialogue_Reasoning/maze_generation/MedQA_Maze/basic/test.jsonl", "a+")
+advance_file = open("/playpen/xinyu/jesse/Dialogue_Reasoning/maze_generation/MedQA_Maze/advance/test.jsonl", "a+")
+challenge_file = open("/playpen/xinyu/jesse/Dialogue_Reasoning/maze_generation/MedQA_Maze/challenge/test.jsonl", "a+")
 
 with open(test_path, "r") as f_read:
   for idx, line in enumerate(f_read):
@@ -51,11 +51,23 @@ with open(test_path, "r") as f_read:
     elif idx in challenge_lst:
       challenge_file.write(line)
 
-print("advanced_lst", len(advanced_lst))
-print("baisc_lst", len(baisc_lst))
-print("challenge_lst", len(challenge_lst))
+# print("advanced_lst", len(advanced_lst))
+# print("baisc_lst", len(baisc_lst))
+# print("challenge_lst", len(challenge_lst))
 
-medqa = load_dataset("GBaker/MedQA-USMLE-4-options")["test"]
-md4 = load_dataset("JesseLiu/medbulltes4op")["test"]
-md5 = load_dataset("JesseLiu/medbulltes5op")["test"]
-jama = load_dataset("JesseLiu/Jama_challenge")["test"]
+# medqa = load_dataset("GBaker/MedQA-USMLE-4-options")["test"]
+# md4 = load_dataset("JesseLiu/medbulltes4op")["test"]
+# md5 = load_dataset("JesseLiu/medbulltes5op")["test"]
+# jama = load_dataset("JesseLiu/Jama_challenge")["test"]
+
+import pickle
+
+with open("./groups_info/baisc.pkl", "wb") as file:
+  pickle.dump(baisc_lst, file)
+
+with open("./groups_info/advance.pkl", "wb") as file:
+  pickle.dump(advanced_lst, file)
+
+with open("./groups_info/challenge.pkl", "wb") as file:
+  pickle.dump(challenge_lst, file)
+
