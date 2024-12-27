@@ -3,8 +3,8 @@ import json
 import re
 
 
-f_write = open("./clean_dialogue_llama.jsonl", "a+")
-with open('dialogue_medqa_llama.jsonl', 'r', encoding='utf-8') as file:
+f_write = open("./dialogue_set/clean_dialogue_case.jsonl", "a+")
+with open('./dialogue_set/case_dialogue.jsonl', 'r', encoding='utf-8') as file:
     for line in file:
         data = json.loads(line)
         text = data['response']
