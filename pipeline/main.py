@@ -90,7 +90,7 @@ def game_start(args) -> None:
         lora_name = args.lora_weight.split("/")[-1] if "/" in args.lora_weight else args.lora_weight
     else:
         lora_name = "None"
-    folder_path = f"./{args.output_path}/{args.task_type}"
+    folder_path = f"./{args.output_path}/{args.task_level}/{args.task_type}"
     os.makedirs(folder_path, exist_ok=True)
     
     output_file_path = f"./{folder_path}/{args.model}_{pretrained_name}_{lora_name}_{args.num_fewshot}_{args.confusion_level}"
