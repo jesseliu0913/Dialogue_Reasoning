@@ -11,9 +11,9 @@ parser.add_argument('--task', type=str, required=True, help='task type')
 args = parser.parse_args()
 
 if args.task == "one_round":
-    FOLDER_PATH, task = "./output/llama8b_ep3/one_round", "one_round"
+    FOLDER_PATH, task = "./output/all/one_round", "one_round"
 elif args.task == "multi_round":
-    FOLDER_PATH, task= "./output/llama8b_ep3/multi_round", "multi_round"
+    FOLDER_PATH, task= "./output/all/multi_round", "multi_round"
 else:
     print("Plz pass the correct task type in [one_round, multi_round]")
 
@@ -49,7 +49,7 @@ def calculate_correct_positions(truth, predicted):
 
 
 for input_f in input_files:
-    if "Mistral-7B-Instruct-v0.3" not in input_f:
+    if "Llama-3.2-3B-Instruct" in input_f:
         print(input_f)
         precision_scores = []
         recall_scores = []
