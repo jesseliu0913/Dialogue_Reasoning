@@ -115,7 +115,7 @@ ANSWER:"""
       return line
 
   def get_oneround(self):
-      dataset = load_dataset("JesseLiu/MedQA_Maze", split="test")
+      dataset = load_dataset("JesseLiu/MedQA_Maze", self.task_level, split="test", trust_remote_code=True)
       dataset = dataset.map(
           lambda example, index: self.oneround_prompt(example, index),
           with_indices=True,
@@ -125,7 +125,7 @@ ANSWER:"""
 
 
   def get_multiround(self):
-      dataset = load_dataset("JesseLiu/MedQA_Maze", self.task_level)
+      dataset = load_dataset("JesseLiu/MedQA_Maze", self.task_level, split="test", trust_remote_code=True)
       dataset = dataset.map(
           lambda example, index: self.muliround_prompt(example, index),
           with_indices=True,

@@ -75,9 +75,9 @@ def get_args() -> argparse.Namespace:
     )
     parser.add_argument(
           "--task_level",
-          default="basic",
+          default="all",
           type=str,
-          help="basic / advance / challenge",
+          help="basic / advance / challenge / all",
     )
 
     return parser.parse_args()
@@ -90,6 +90,7 @@ def game_start(args) -> None:
         lora_name = args.lora_weight.split("/")[-1] if "/" in args.lora_weight else args.lora_weight
     else:
         lora_name = "None"
+        
     folder_path = f"./{args.output_path}/{args.task_level}/{args.task_type}"
     os.makedirs(folder_path, exist_ok=True)
     
