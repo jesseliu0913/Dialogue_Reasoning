@@ -1,1 +1,3 @@
-{"results": {"iwslt17-ar-en": {"bleu": 0.0, "bleu_stderr": 0.0, "chrf": 0.015049895477752772, "chrf_stderr": 0.0002940315671893584, "ter": 1.0, "ter_stderr": 0.0}}, "versions": {"iwslt17-ar-en": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:b4e291337027ab52abebdfc1ecf55b88708ef4fdda7be44340f3582f62e4e2b5
+size 198

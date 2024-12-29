@@ -1,1 +1,3 @@
-{"results": {"lambada_openai_mt_en": {"acc": 0.0, "acc_stderr": 0.0, "ppl": 1.6479047769869253, "ppl_stderr": 0.006497321146240192}}, "versions": {"lambada_openai_mt_en": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:eef4d9252f0daf858b3db9e510e1f1be6ac43279833858a0485206dbdd1dd259
+size 174

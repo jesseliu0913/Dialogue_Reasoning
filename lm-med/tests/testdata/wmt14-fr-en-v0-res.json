@@ -1,1 +1,3 @@
-{"results": {"wmt14-fr-en": {"bleu": 0.0, "bleu_stderr": 0.0, "chrf": 0.01275083169440515, "chrf_stderr": 8.45474998563806e-05, "ter": 1.0, "ter_stderr": 0.0}}, "versions": {"wmt14-fr-en": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:9f8b4beb936821234bd5dc619240dc5361886f5be4b2f419819bd9c106d160c5
+size 192

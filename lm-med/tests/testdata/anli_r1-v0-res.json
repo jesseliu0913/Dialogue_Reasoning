@@ -1,1 +1,3 @@
-{"results": {"anli_r1": {"acc": 0.334, "acc_stderr": 0.014922019523732967}}, "versions": {"anli_r1": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f1ce5cf4a1593b171ed95825c84c0edb9469b5a3267813820d2db1be09981f41
+size 104

@@ -1,1 +1,3 @@
-{"results": {"hendrycksTest-medical_genetics": {"acc": 0.27, "acc_norm": 0.29, "acc_norm_stderr": 0.04560480215720684, "acc_stderr": 0.0446196043338474}}, "versions": {"hendrycksTest-medical_genetics": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:5a41d73bed4cd0de311e8b66781b94cbe84fc48f8408e80811bf2310e889e947
+size 205

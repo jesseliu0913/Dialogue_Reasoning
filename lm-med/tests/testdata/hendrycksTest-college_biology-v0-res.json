@@ -1,1 +1,3 @@
-{"results": {"hendrycksTest-college_biology": {"acc": 0.24305555555555555, "acc_norm": 0.2361111111111111, "acc_norm_stderr": 0.03551446610810826, "acc_stderr": 0.03586879280080341}}, "versions": {"hendrycksTest-college_biology": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:7ef359df4cb010611170990fea9f029b06763098563fb13687da2bc237cb8f17
+size 233

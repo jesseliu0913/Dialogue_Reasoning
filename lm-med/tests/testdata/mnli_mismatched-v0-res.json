@@ -1,1 +1,3 @@
-{"results": {"mnli_mismatched": {"acc": 0.3360455655004068, "acc_stderr": 0.004763973908606819}}, "versions": {"mnli_mismatched": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:718637a175809c1d578342212c5a361089c0ab3ae4b97a28fa5e28046cd95cff
+size 133

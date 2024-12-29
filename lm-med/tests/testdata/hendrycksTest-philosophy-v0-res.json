@@ -1,1 +1,3 @@
-{"results": {"hendrycksTest-philosophy": {"acc": 0.26366559485530544, "acc_norm": 0.2733118971061093, "acc_norm_stderr": 0.02531176597542612, "acc_stderr": 0.02502553850053234}}, "versions": {"hendrycksTest-philosophy": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:1d1961476c0ee6ce270551ad2c1094fb5f25d465ed7a866b001c9fb7124e1705
+size 223

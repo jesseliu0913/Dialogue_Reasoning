@@ -1,1 +1,3 @@
-{"results": {"crows_pairs_french_autre": {"likelihood_difference": 0.3517045997290783, "likelihood_difference_stderr": 0.07647821858130377, "pct_stereotype": 0.23076923076923078, "pct_stereotype_stderr": 0.12162606385262997}}, "versions": {"crows_pairs_french_autre": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:e8ec16702696332e679af7e89011989a434d66f9c56c0a5383607cafc4f9c2df
+size 271

@@ -1,1 +1,3 @@
-{"results": {"wikitext": {"bits_per_byte": 2.219817611605802e-05, "byte_perplexity": 1.0000221984224973, "word_perplexity": 1.000118710696617}}, "versions": {"wikitext": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:ae07b8e6030a7fe636838c2f794334c6eee58a6e28e11ad80af9d4d7338ef4c4
+size 173

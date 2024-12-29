@@ -1,1 +1,3 @@
-{"results": {"truthfulqa_mc": {"mc1": 0.2141982864137087, "mc1_stderr": 0.01436214815569045, "mc2": 0.465436996173817, "mc2_stderr": 0.0048422530880316405}}, "versions": {"truthfulqa_mc": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:4201b80688191e7e040e2ca9b91758261b19b9aeb701987d7c018f4534dd9876
+size 191

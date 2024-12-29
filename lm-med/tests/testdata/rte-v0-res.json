@@ -1,1 +1,3 @@
-{"results": {"rte": {"acc": 0.5379061371841155, "acc_stderr": 0.030009848912529117}}, "versions": {"rte": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:5972ed760e1221bb86a30869a73a36ec96153e4c70f64cb08cefc05959330e4a
+size 109

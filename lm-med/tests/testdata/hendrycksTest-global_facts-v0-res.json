@@ -1,1 +1,3 @@
-{"results": {"hendrycksTest-global_facts": {"acc": 0.23, "acc_norm": 0.23, "acc_norm_stderr": 0.04229525846816507, "acc_stderr": 0.04229525846816507}}, "versions": {"hendrycksTest-global_facts": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:4d25210804d231802b59f7c6c799dd22f04964b4bea1857af99b34707093b896
+size 198

@@ -1,1 +1,3 @@
-{"results": {"hendrycksTest-college_physics": {"acc": 0.23529411764705882, "acc_norm": 0.23529411764705882, "acc_norm_stderr": 0.04220773659171453, "acc_stderr": 0.04220773659171452}}, "versions": {"hendrycksTest-college_physics": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:93f4d005ae470f1e6a09849adce64a63cec955e3b3249585320a10903d05e8f6
+size 234

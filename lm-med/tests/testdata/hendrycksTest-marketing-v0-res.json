@@ -1,1 +1,3 @@
-{"results": {"hendrycksTest-marketing": {"acc": 0.2863247863247863, "acc_norm": 0.2905982905982906, "acc_norm_stderr": 0.029745048572674043, "acc_stderr": 0.029614323690456648}}, "versions": {"hendrycksTest-marketing": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:6c6cee8c14e399dc31abe38f89dc4b80aafbd4373e10f301e8338f5ce14884de
+size 222

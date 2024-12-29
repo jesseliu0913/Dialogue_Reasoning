@@ -1,1 +1,3 @@
-{"results": {"arc_easy": {"acc": 0.2474747474747475, "acc_norm": 0.24074074074074073, "acc_norm_stderr": 0.008772796145221907, "acc_stderr": 0.008855114414834707}}, "versions": {"arc_easy": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:37d682662a428c1b5341b966954b7029f7128ee96a2fc0aa1b3c79b36a98c237
+size 193

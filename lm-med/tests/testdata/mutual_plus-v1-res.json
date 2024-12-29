@@ -1,1 +1,3 @@
-{"results": {"mutual_plus": {"mrr": 0.5275583145221953, "mrr_stderr": 0.009940894824430708, "r@1": 0.26297968397291194, "r@1_stderr": 0.01479889176605113, "r@2": 0.5, "r@2_stderr": 0.01680731613632036}}, "versions": {"mutual_plus": 1}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:dbc49f88b70a5e1fc35b108c99fd99ea1b7a0ef3fe5f3040f314207f6b994fd4
+size 235

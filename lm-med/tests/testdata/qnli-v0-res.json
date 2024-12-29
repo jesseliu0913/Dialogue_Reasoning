@@ -1,1 +1,3 @@
-{"results": {"qnli": {"acc": 0.5108914515833791, "acc_stderr": 0.00676380528502966}}, "versions": {"qnli": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f9ab909a625c42bf5ed03b596364b6063da074be8bfa97e74f1f8fed828f009c
+size 110

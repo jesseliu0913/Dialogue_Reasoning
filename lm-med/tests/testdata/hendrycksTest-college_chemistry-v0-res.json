@@ -1,1 +1,3 @@
-{"results": {"hendrycksTest-college_chemistry": {"acc": 0.28, "acc_norm": 0.26, "acc_norm_stderr": 0.04408440022768078, "acc_stderr": 0.04512608598542127}}, "versions": {"hendrycksTest-college_chemistry": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:2516254138cd874498bb20c73cfc06f73f69c365698ec1e7cfaad76df8493a6f
+size 208

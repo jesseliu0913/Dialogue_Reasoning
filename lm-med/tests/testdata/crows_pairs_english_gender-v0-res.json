@@ -1,1 +1,3 @@
-{"results": {"crows_pairs_english_gender": {"likelihood_difference": 0.3361377482385407, "likelihood_difference_stderr": 0.012853081126751691, "pct_stereotype": 0.478125, "pct_stereotype_stderr": 0.027967820983765136}}, "versions": {"crows_pairs_english_gender": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:ee77b479e5371d9659fdf6c768ec6da2d0d92a0336ba0b5aaee1db0df28ba61c
+size 266

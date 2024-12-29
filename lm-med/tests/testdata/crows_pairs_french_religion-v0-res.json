@@ -1,1 +1,3 @@
-{"results": {"crows_pairs_french_religion": {"likelihood_difference": 0.32691651640972225, "likelihood_difference_stderr": 0.021833493193249474, "pct_stereotype": 0.45217391304347826, "pct_stereotype_stderr": 0.046614569799583463}}, "versions": {"crows_pairs_french_religion": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:d117a32a0f8fa08e610f4f46df1cb7c3485f402206318ef389b5b6d833e6cc01
+size 280

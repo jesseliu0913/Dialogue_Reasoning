@@ -1,1 +1,3 @@
-{"results": {"hendrycksTest-anatomy": {"acc": 0.2222222222222222, "acc_norm": 0.23703703703703705, "acc_norm_stderr": 0.03673731683969506, "acc_stderr": 0.0359144408419697}}, "versions": {"hendrycksTest-anatomy": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f71df4c982b0b3eac72b5eff57448f8d7a909f3bbb7ed5ddc5a82264228ec50a
+size 216

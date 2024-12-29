@@ -1,1 +1,3 @@
-{"results": {"pile_gutenberg": {"bits_per_byte": 1.2443606332351536e-06, "byte_perplexity": 1.0000012443614075, "word_perplexity": 1.0000072174665404}}, "versions": {"pile_gutenberg": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f8c3a130fea70a82e9c6460c74f8f6f0b715c16e0efe6ba818cb7bcc1b796ede
+size 187

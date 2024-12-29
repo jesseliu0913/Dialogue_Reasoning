@@ -1,1 +1,3 @@
-{"results": {"hendrycksTest-professional_accounting": {"acc": 0.2553191489361702, "acc_norm": 0.26595744680851063, "acc_norm_stderr": 0.026358065698880582, "acc_stderr": 0.026011992930902006}}, "versions": {"hendrycksTest-professional_accounting": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:73c82e752b183701a9838645ff4efe7ffb496efc5b75c0d5d46f65e87e52f1cc
+size 251

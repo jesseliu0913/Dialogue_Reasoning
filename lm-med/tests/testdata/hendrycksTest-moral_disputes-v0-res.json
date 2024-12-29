@@ -1,1 +1,3 @@
-{"results": {"hendrycksTest-moral_disputes": {"acc": 0.24855491329479767, "acc_norm": 0.27167630057803466, "acc_norm_stderr": 0.023948512905468365, "acc_stderr": 0.023267528432100174}}, "versions": {"hendrycksTest-moral_disputes": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:dacc5a6263ddc8f35ea453c39c42c25fe16d58143e7265c79f2c61f85c5a2795
+size 234

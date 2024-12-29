@@ -1,1 +1,3 @@
-{"results": {"hendrycksTest-virology": {"acc": 0.27710843373493976, "acc_norm": 0.2710843373493976, "acc_norm_stderr": 0.03460579907553027, "acc_stderr": 0.034843315926805875}}, "versions": {"hendrycksTest-virology": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:553135518543a06de31227a662e44716d6740d590e5237e0ab8b4ab1c5461831
+size 220

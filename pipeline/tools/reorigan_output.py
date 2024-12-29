@@ -44,20 +44,20 @@ for multi_f in multiround_files:
         elif idx in challenge_lst:
             challenge_file.write(line)
             
-# for one_f in oneround_files:
-#     one_file = open(f"{OUTPUT_FOLDER}/one_round/{one_f}", "r")
+for one_f in oneround_files:
+    one_file = open(f"{OUTPUT_FOLDER}/one_round/{one_f}", "r")
     
-#     basic_file = open(f"{OUTPUT_FOLDER}/basic/one_round/{one_f}", "a+")
-#     advance_file = open(f"{OUTPUT_FOLDER}/advance/one_round/{one_f}", "a")
-#     challenge_file = open(f"{OUTPUT_FOLDER}/challenge/one_round/{one_f}", "a")
+    basic_file = open(f"{OUTPUT_FOLDER}/basic/one_round/{one_f}", "a+")
+    advance_file = open(f"{OUTPUT_FOLDER}/advance/one_round/{one_f}", "a")
+    challenge_file = open(f"{OUTPUT_FOLDER}/challenge/one_round/{one_f}", "a")
 
-#     for idx, line in enumerate(one_file):
-#         if idx in basic_lst:
-#             basic_file.write(line)
-#         elif idx in advance_lst:
-#             advance_file.write(line)
-#         elif idx in challenge_lst:
-#             challenge_file.write(line)
+    for idx, line in enumerate(one_file):
+        if idx in basic_lst:
+            basic_file.write(line)
+        elif idx in advance_lst:
+            advance_file.write(line)
+        elif idx in challenge_lst:
+            challenge_file.write(line)
 
     
 

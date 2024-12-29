@@ -1,1 +1,3 @@
-{"results": {"hendrycksTest-formal_logic": {"acc": 0.25396825396825395, "acc_norm": 0.2698412698412698, "acc_norm_stderr": 0.03970158273235172, "acc_stderr": 0.03893259610604674}}, "versions": {"hendrycksTest-formal_logic": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:e50cacb2bf9c65c8426ad130844f435915eaa93a0908d4db0aaa0bcb3a7b5feb
+size 227

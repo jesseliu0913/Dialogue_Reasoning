@@ -1,1 +1,3 @@
-{"results": {"hendrycksTest-high_school_statistics": {"acc": 0.2962962962962963, "acc_norm": 0.3055555555555556, "acc_norm_stderr": 0.03141554629402544, "acc_stderr": 0.03114144782353604}}, "versions": {"hendrycksTest-high_school_statistics": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:3bbb0dfa9e46b2a3eedb37d158d57ac8854ea9f51463869b05552280ad5f5166
+size 246

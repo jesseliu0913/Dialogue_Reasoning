@@ -1,1 +1,3 @@
-{"results": {"hendrycksTest-professional_medicine": {"acc": 0.23161764705882354, "acc_norm": 0.2536764705882353, "acc_norm_stderr": 0.02643132987078953, "acc_stderr": 0.025626533803777562}}, "versions": {"hendrycksTest-professional_medicine": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:cfc2dbd45e582cef3f705bd2dc847c8f0cb82b80a3696480211b35bb3616f6e0
+size 246

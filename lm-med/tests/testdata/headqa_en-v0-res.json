@@ -1,1 +1,3 @@
-{"results": {"headqa_en": {"acc": 0.23559445660102116, "acc_norm": 0.2447118891320204, "acc_norm_stderr": 0.008211629406841468, "acc_stderr": 0.008105688874297972}}, "versions": {"headqa_en": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:de0c9605a293fffbc506084e7ae05ca0c00e92d76fe8ca03d8674e92e3d20f38
+size 195

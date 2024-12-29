@@ -1,1 +1,3 @@
-{"results": {"hendrycksTest-logical_fallacies": {"acc": 0.20245398773006135, "acc_norm": 0.2147239263803681, "acc_norm_stderr": 0.03226219377286774, "acc_stderr": 0.03157065078911902}}, "versions": {"hendrycksTest-logical_fallacies": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:302a51b5b12ef4a83d5b2e1464a70e96d13711da4b8b13914b7e35ad845b71f3
+size 237

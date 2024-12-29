@@ -1,1 +1,3 @@
-{"results": {"wmt20-ps-en": {"bleu": 0.0, "bleu_stderr": 0.0, "chrf": 0.015192865365105723, "chrf_stderr": 0.00011334541381539086, "ter": 1.0, "ter_stderr": 0.0}}, "versions": {"wmt20-ps-en": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:4d62ad2ff3cc4428704c3eac1af3fd8fed72339b228eeb8d791d4e0bfd60019a
+size 195

@@ -1,1 +1,3 @@
-{"results": {"hendrycksTest-econometrics": {"acc": 0.24561403508771928, "acc_norm": 0.24561403508771928, "acc_norm_stderr": 0.04049339297748142, "acc_stderr": 0.040493392977481425}}, "versions": {"hendrycksTest-econometrics": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:d5e95c77f3fb3dc93760ae38d82bd3fffacc9eeb901284922d3d01210b5d7bb9
+size 229

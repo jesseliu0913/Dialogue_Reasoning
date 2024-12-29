@@ -1,1 +1,3 @@
-{"results": {"hendrycksTest-high_school_macroeconomics": {"acc": 0.2230769230769231, "acc_norm": 0.22564102564102564, "acc_norm_stderr": 0.021193632525148522, "acc_stderr": 0.021107730127244}}, "versions": {"hendrycksTest-high_school_macroeconomics": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:d207b03766435424532bc12dab64e88e2bb32a5b3ec5789b23c5b7d6dad5a106
+size 254

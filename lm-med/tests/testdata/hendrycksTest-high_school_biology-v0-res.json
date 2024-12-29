@@ -1,1 +1,3 @@
-{"results": {"hendrycksTest-high_school_biology": {"acc": 0.23870967741935484, "acc_norm": 0.2709677419354839, "acc_norm_stderr": 0.025284416114900152, "acc_stderr": 0.024251071262208834}}, "versions": {"hendrycksTest-high_school_biology": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:ea778ddb1e4a54fc16a9ee4295e319220122204a381a6878f5197b95ec7a64fb
+size 243

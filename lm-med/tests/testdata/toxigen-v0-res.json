@@ -1,1 +1,3 @@
-{"results": {"toxigen": {"acc": 0.5053191489361702, "acc_norm": 0.46808510638297873, "acc_norm_stderr": 0.016283609940023203, "acc_stderr": 0.016315959984563776}}, "versions": {"toxigen": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:6e4ce7e370970c667ca0e7410858dee2f27ec00e448a2448b310d8d7a7fd0aa9
+size 191

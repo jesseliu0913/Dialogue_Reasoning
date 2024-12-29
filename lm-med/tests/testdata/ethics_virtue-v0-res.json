@@ -1,1 +1,3 @@
-{"results": {"ethics_virtue": {"acc": 0.5035175879396985, "acc_stderr": 0.0070893491553555765, "em": 0.036180904522613064}}, "versions": {"ethics_virtue": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:7779d416ad0ab4242e17b03f2c9424b4a070fa324f7726287a039d9ff43077bb
+size 158

@@ -1,1 +1,3 @@
-{"results": {"pile_pile-cc": {"bits_per_byte": 0.0001620742639125056, "byte_perplexity": 1.0001123476295946, "word_perplexity": 1.0006738958554477}}, "versions": {"pile_pile-cc": 1}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:7a4efc16c0325857240189bbff909181b5b402bbbe6515fd71f314e2c9058f2f
+size 182

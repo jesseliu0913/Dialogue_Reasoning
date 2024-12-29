@@ -1,1 +1,3 @@
-{"results": {"lambada_mt_fr": {"acc": 0.0, "acc_stderr": 0.0, "ppl": 1.6479047769869253, "ppl_stderr": 0.006497321146240192}}, "versions": {"lambada_mt_fr": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:0c6a893a98b777965be48a9065e9574de611c9320ff6df9126048e3b2c1582c1
+size 160

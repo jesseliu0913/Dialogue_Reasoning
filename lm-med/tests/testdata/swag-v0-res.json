@@ -1,1 +1,3 @@
-{"results": {"swag": {"acc": 0.2482255323402979, "acc_norm": 0.24882535239428172, "acc_norm_stderr": 0.00305666959496067, "acc_stderr": 0.003054201832644171}}, "versions": {"swag": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:281af614f8052ebb28382c8cd31b8a514b8f66645bab9742d7c08456f1c1b444
+size 184

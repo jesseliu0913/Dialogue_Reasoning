@@ -1,1 +1,3 @@
-{"results": {"wmt16-en-de": {"bleu": 0.0, "bleu_stderr": 0.0, "chrf": 0.010909486120840577, "chrf_stderr": 0.000122611124711072, "ter": 1.0, "ter_stderr": 0.0}}, "versions": {"wmt16-en-de": 0}}
+version https://git-lfs.github.com/spec/v1
+oid sha256:1df10dba4afd113897cf1a6eb0dd4881bbbb2fcfa1c409f5a9d4f85f945ccad5
+size 193
