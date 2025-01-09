@@ -33,6 +33,16 @@ def calculate_mrr(truth, predicted):
   
     return sum(reciprocal_ranks) / len(truth) if reciprocal_ranks else 0.0
 
+def calculate_pairwise_accuracy(truth, predicted):
+    truth = list(truth)
+    predicted = list(predicted)
+    truth_pairs = [(truth[i], truth[i+1]) for i in range(len(truth) - 1)]
+    predicted_pairs = [(predicted[i], predicted[i+1]) for i in range(len(predicted) - 1)]
+    
+    match_count = sum(1 for pair in predicted_pairs if pair in truth_pairs)
+    
+    return match_count / len(truth_pairs) if truth_pairs else 0.0
+
 
 def calculate_correct_positions(truth, predicted):
     truth = list(truth)
@@ -49,7 +59,7 @@ def calculate_correct_positions(truth, predicted):
 
 
 for input_f in input_files:
-    if "Llama-3.2-3B-Instruct" in input_f:
+    if "Mistral-7B-Instruct-v0.3" in input_f:
         print(input_f)
         precision_scores = []
         recall_scores = []

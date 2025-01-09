@@ -4,8 +4,8 @@ import pickle
 
 
 OUTPUT_FOLDER = "../output"
-oneround_files = [f for f in os.listdir(f"{OUTPUT_FOLDER}/one_round") if not f.startswith(".")]
-multiround_files = [f for f in os.listdir(f"{OUTPUT_FOLDER}/multi_round") if not f.startswith(".")]
+oneround_files = [f for f in os.listdir(f"{OUTPUT_FOLDER}/all/one_round") if not f.startswith(".")]
+multiround_files = [f for f in os.listdir(f"{OUTPUT_FOLDER}/all/multi_round") if not f.startswith(".")]
 
 group_types = ['basic', 'advance', 'challenge']
 
@@ -30,8 +30,13 @@ for gt in group_types:
       os.makedirs(f"{folder_path}/multi_round")
 
 for multi_f in multiround_files:
-    multi_file = open(f"{OUTPUT_FOLDER}/multi_round/{multi_f}", "r")
+    multi_file = open(f"{OUTPUT_FOLDER}/all/multi_round/{multi_f}", "r")
+    basic_file_path = f"{OUTPUT_FOLDER}/basic/multi_round/{multi_f}"
     
+    if os.path.exists(basic_file_path):
+        print("File exists, Skiping!")
+        continue
+
     basic_file = open(f"{OUTPUT_FOLDER}/basic/multi_round/{multi_f}", "a+")
     advance_file = open(f"{OUTPUT_FOLDER}/advance/multi_round/{multi_f}", "a")
     challenge_file = open(f"{OUTPUT_FOLDER}/challenge/multi_round/{multi_f}", "a")
@@ -45,7 +50,14 @@ for multi_f in multiround_files:
             challenge_file.write(line)
             
 for one_f in oneround_files:
-    one_file = open(f"{OUTPUT_FOLDER}/one_round/{one_f}", "r")
+    one_file = open(f"{OUTPUT_FOLDER}/all/one_round/{one_f}", "r")
+    basic_file_path = f"{OUTPUT_FOLDER}/basic/one_round/{one_f}"
+    
+    if os.path.exists(basic_file_path):
+        print("File exists, Skiping!")
+        continue
+    else:
+        print(basic_file_path)
     
     basic_file = open(f"{OUTPUT_FOLDER}/basic/one_round/{one_f}", "a+")
     advance_file = open(f"{OUTPUT_FOLDER}/advance/one_round/{one_f}", "a")

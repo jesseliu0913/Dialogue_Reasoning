@@ -29,6 +29,16 @@ def calculate_correct_positions(truth, predicted):
     correct_count = sum(1 for index, item in enumerate(predicted[:length]) if truth[index] == item)
     return correct_count / length if length != 0 else 0.0
 
+def calculate_pairwise_accuracy(truth, predicted):
+    truth = list(truth)
+    predicted = list(predicted)
+    truth_pairs = [(truth[i], truth[i+1]) for i in range(len(truth) - 1)]
+    predicted_pairs = [(predicted[i], predicted[i+1]) for i in range(len(predicted) - 1)]
+    
+    match_count = sum(1 for pair in predicted_pairs if pair in truth_pairs)
+    
+    return match_count / len(truth_pairs) if truth_pairs else 0.0
+
 for task in task_types:
     FOLDER_PATH = f"./output/{task}"
     results = {
@@ -52,13 +62,14 @@ for task in task_types:
 
                     if input_f not in results[round_type][prefix][confusion_level]:
                         results[round_type][prefix][confusion_level][input_f] = {
-                            "F1": [], "Precision": [], "Recall": [], "POS": []
+                            "F1": [], "Precision": [], "Recall": [], "POS": [], "Single": []
                         }
 
                     precision_scores = []
                     recall_scores = []
                     f1_scores = []
                     pos_scores = []
+                    single_scores = []
 
                     file_path = os.path.join(round_folder, input_f)
                     with open(file_path, 'r') as file_lst:
@@ -79,6 +90,8 @@ for task in task_types:
                                     output = set(map(int, numbers[:len(ground_truth)]))
 
                                     pos_score = calculate_correct_positions(ground_truth, output)
+                                    single_score = calculate_pairwise_accuracy(ground_truth, output)
+
                                     tp = ground_truth & output
                                     fp = output - ground_truth
                                     fn = ground_truth - output
@@ -90,6 +103,7 @@ for task in task_types:
                                     recall_scores.append(recall)
                                     f1_scores.append(f1_score)
                                     pos_scores.append(pos_score)
+                                    single_scores.append(single_score)
 
                             elif round_type == "multi_round":
                                 if len(ground_truth) != 0:
@@ -98,6 +112,8 @@ for task in task_types:
                                         output.remove("$")
 
                                     pos_score = calculate_correct_positions(ground_truth, output)
+                                    single_score = calculate_pairwise_accuracy(ground_truth, output)
+
                                     tp = ground_truth & output
                                     fp = output - ground_truth
                                     fn = ground_truth - output
@@ -109,21 +125,24 @@ for task in task_types:
                                     recall_scores.append(recall)
                                     f1_scores.append(f1_score)
                                     pos_scores.append(pos_score)
+                                    single_scores.append(single_score)
 
                     results[round_type][prefix][confusion_level][input_f]["F1"].append(np.mean(f1_scores) if f1_scores else 0.0)
                     results[round_type][prefix][confusion_level][input_f]["Precision"].append(np.mean(precision_scores) if precision_scores else 0.0)
                     results[round_type][prefix][confusion_level][input_f]["Recall"].append(np.mean(recall_scores) if recall_scores else 0.0)
                     results[round_type][prefix][confusion_level][input_f]["POS"].append(np.mean(pos_scores) if pos_scores else 0.0)
+                    results[round_type][prefix][confusion_level][input_f]["Single"].append(np.mean(single_scores) if single_scores else 0.0)
 
     final_results = {
         "one_round": {
             prefix: {
                 confusion_level: {
                     file_name: {
-                        "F1": np.mean(metrics["F1"]) if metrics["F1"] else 0.0,
-                        "Precision": np.mean(metrics["Precision"]) if metrics["Precision"] else 0.0,
-                        "Recall": np.mean(metrics["Recall"]) if metrics["Recall"] else 0.0,
-                        "POS": np.mean(metrics["POS"]) if metrics["POS"] else 0.0
+                        # "F1": np.mean(metrics["F1"]) if metrics["F1"] else 0.0,
+                        # "Precision": np.mean(metrics["Precision"]) if metrics["Precision"] else 0.0,
+                        # "Recall": np.mean(metrics["Recall"]) if metrics["Recall"] else 0.0,
+                        "POS": np.mean(metrics["POS"]) if metrics["POS"] else 0.0,
+                        "Signle": np.mean(metrics["Single"]) if metrics["Single"] else 0.0
                     }
                     for file_name, metrics in files.items()
                 }
@@ -135,10 +154,11 @@ for task in task_types:
             prefix: {
                 confusion_level: {
                     file_name: {
-                        "F1": np.mean(metrics["F1"]) if metrics["F1"] else 0.0,
-                        "Precision": np.mean(metrics["Precision"]) if metrics["Precision"] else 0.0,
-                        "Recall": np.mean(metrics["Recall"]) if metrics["Recall"] else 0.0,
-                        "POS": np.mean(metrics["POS"]) if metrics["POS"] else 0.0
+                        # "F1": np.mean(metrics["F1"]) if metrics["F1"] else 0.0,
+                        # "Precision": np.mean(metrics["Precision"]) if metrics["Precision"] else 0.0,
+                        # "Recall": np.mean(metrics["Recall"]) if metrics["Recall"] else 0.0,
+                        "POS": np.mean(metrics["POS"]) if metrics["POS"] else 0.0,
+                        "Signle": np.mean(metrics["Single"]) if metrics["Single"] else 0.0
                     }
                     for file_name, metrics in files.items()
                 }
