@@ -75,11 +75,12 @@ class MazeDatasetProcessor:
         muddy_zoo = groundtruth_zoo.copy()
         trouble_index = []
         truth_idx = [i for i in range(len(muddy_zoo))]
+        print(muddy_zoo, truth_idx)
 
         combined = list(zip(muddy_zoo, truth_idx))
         random.shuffle(combined)
         muddy_zoo, truth_idx = zip(*combined)
-
+        
         muddy_zoo = list(muddy_zoo)
         truth_idx = list(truth_idx)
 
@@ -123,7 +124,7 @@ ANSWER:"""
       return line
 
   def get_oneround(self):
-      dataset = load_dataset("JesseLiu/MedQA_Maze", self.task_level, split="test")
+      dataset = load_dataset("JesseLiu/MedQA_Maze", self.task_level, split="test", trust_remote_code=True)
       dataset = dataset.map(
           lambda example, index: self.oneround_prompt(example, index),
           with_indices=True,
@@ -133,7 +134,7 @@ ANSWER:"""
 
 
   def get_multiround(self):
-      dataset = load_dataset("JesseLiu/MedQA_Maze", self.task_level, split="test")
+      dataset = load_dataset("JesseLiu/MedQA_Maze", self.task_level, split="test", trust_remote_code=True)
       dataset = dataset.map(
           lambda example, index: self.muliround_prompt(example, index),
           with_indices=True,
