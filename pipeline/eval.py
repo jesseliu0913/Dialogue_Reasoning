@@ -12,7 +12,6 @@ model_prefixes = [
     "Llama-3.2-3B-Instruct",
     "Llama-3.1-8B-Instruct",
     "Qwen2.5-3B-Instruct",
-    "Mistral-7B-Instruct-v0.3"
 ]
 
 def calculate_mrr(truth, predicted):
@@ -80,14 +79,13 @@ for task in task_types:
                                 print(f"Skipping line {idx} due to JSONDecodeError: {e}")
                                 continue
 
-                            ground_truth = set(input_data['truth_idx'])
-                            trouble_maker = set(input_data['trouble_idx'])
-                            total_list = ground_truth | trouble_maker
+                            ground_truth = input_data['truth_idx']
+                            trouble_maker = input_data['trouble_idx']
 
                             if round_type == "one_round":
                                 if find_integer(input_data['response']) is not None and len(ground_truth) != 0:
                                     numbers = re.findall(r'\d+', input_data['response'])
-                                    output = set(map(int, numbers[:len(ground_truth)]))
+                                    output = list(dict.fromkeys(map(int, numbers)))[:len(ground_truth)]
 
                                     pos_score = calculate_correct_positions(ground_truth, output)
                                     single_score = calculate_pairwise_accuracy(ground_truth, output)
@@ -107,7 +105,7 @@ for task in task_types:
 
                             elif round_type == "multi_round":
                                 if len(ground_truth) != 0:
-                                    output = set(input_data['response_index'])
+                                    output = input_data['response_index']
                                     if "$" in output:
                                         output.remove("$")
 
