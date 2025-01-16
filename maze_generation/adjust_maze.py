@@ -18,9 +18,9 @@ advanced_lst = []
 challenge_lst = []
 count = 0
 
-# basic_file = open("/playpen/xinyu/jesse/Dialogue_Reasoning/maze_generation/MedQA_Maze/basic/test.jsonl", "a+")
-# advance_file = open("/playpen/xinyu/jesse/Dialogue_Reasoning/maze_generation/MedQA_Maze/advance/test.jsonl", "a+")
-# challenge_file = open("/playpen/xinyu/jesse/Dialogue_Reasoning/maze_generation/MedQA_Maze/challenge/test.jsonl", "a+")
+basic_file = open("/playpen/xinyu/jesse/Dialogue_Reasoning/maze_generation/MedQA_Maze/basic/test.jsonl", "a+")
+advance_file = open("/playpen/xinyu/jesse/Dialogue_Reasoning/maze_generation/MedQA_Maze/advance/test.jsonl", "a+")
+challenge_file = open("/playpen/xinyu/jesse/Dialogue_Reasoning/maze_generation/MedQA_Maze/challenge/test.jsonl", "a+")
 
 def get_line(item):
     item_dict = {}
@@ -33,49 +33,36 @@ def get_line(item):
     item_dict['answer'] = item['answer']
 
     if item_dict['groundtruth_zoo'] != []:
-      return item
+      return item_dict
     else:
       return None
 
-# def write2file(ds, train=False):
-#   for item in ds['test']:
-#     item_dict = {}
-#     context = item['question']
-#     item_dict['context'] = context
-#     sent_context= nltk.sent_tokenize(context)
-#     item_dict['question'] = sent_context[-1]
-#     item_dict['prerequisit'] = sent_context[0]
-#     item_dict['groundtruth_zoo'] = sent_context[1:-1]
-#     item_dict['answer'] = item['answer']
 
-#     with open('MedQA_Maze/test.jsonl', 'a+') as f_write:
-#       f_write.write(json.dumps(item_dict) + '\n')
+for dataset in dataset_repo:
+  ds = load_dataset(dataset)
+  if dataset == "GBaker/MedQA-USMLE-4-options":
+    for idx, line in enumerate(ds["test"]):
+      degree = line['meta_info']
+      if degree == "step2&3":
+        line_dict = get_line(line)
+        if line_dict != None:
+          advance_file.write(json.dumps(line_dict) + '\n')
+      else:
+        line_dict = get_line(line)
+        if line_dict != None:
+          basic_file.write(json.dumps(line_dict) + '\n')
 
-# for dataset in dataset_repo:
-#   ds = load_dataset(dataset)
-#   if dataset == "GBaker/MedQA-USMLE-4-options":
-#     for idx, line in enumerate(ds["test"]):
-#       degree = line['meta_info']
-#       if degree == "step2&3":
-#         line_dict = get_line(line)
-#         if line_dict != None:
-#           advance_file.write(json.dumps(line_dict) + '\n')
-#       else:
-#         line_dict = get_line(line)
-#         if line_dict != None:
-#           basic_file.write(json.dumps(line_dict) + '\n')
+  elif dataset in ["JesseLiu/medbulltes4op", "JesseLiu/medbulltes5op"]:
+    for idx, line in enumerate(ds["test"]):
+      line_dict = get_line(line)
+      if line_dict != None:
+        advance_file.write(json.dumps(line_dict) + '\n')
 
-#   elif dataset in ["JesseLiu/medbulltes4op", "JesseLiu/medbulltes5op"]:
-#     for idx, line in enumerate(ds["test"]):
-#       line_dict = get_line(line)
-#       if line_dict != None:
-#         advance_file.write(json.dumps(line_dict) + '\n')
-
-#   elif dataset == "JesseLiu/Jama_challenge":
-#     for idx, line in enumerate(ds["test"]):
-#       line_dict = get_line(line)
-#       if line_dict != None:
-#         challenge_file.write(json.dumps(line_dict) + '\n')
+  elif dataset == "JesseLiu/Jama_challenge":
+    for idx, line in enumerate(ds["test"]):
+      line_dict = get_line(line)
+      if line_dict != None:
+        challenge_file.write(json.dumps(line_dict) + '\n')
 
 
 basic_path = "/playpen/xinyu/jesse/Dialogue_Reasoning/maze_generation/MedQA_Maze/basic/test.jsonl"
@@ -101,9 +88,9 @@ with open(test_path, "w") as outfile:
 
 print(f"Combined data written to {test_path}")
 """
-Basic file length: 662
-Advance file length: 1189
-Challenge file length: 1511
+Basic file length: 659
+Advance file length: 1187
+Challenge file length: 1510
 """
 
 # medqa = load_dataset("GBaker/MedQA-USMLE-4-options")["test"]
