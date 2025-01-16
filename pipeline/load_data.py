@@ -75,7 +75,6 @@ class MazeDatasetProcessor:
         muddy_zoo = groundtruth_zoo.copy()
         trouble_index = []
         truth_idx = [i for i in range(len(muddy_zoo))]
-        print(muddy_zoo, truth_idx)
 
         combined = list(zip(muddy_zoo, truth_idx))
         random.shuffle(combined)

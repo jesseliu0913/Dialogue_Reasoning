@@ -37,7 +37,11 @@ def calculate_pairwise_accuracy(truth, predicted):
     truth = list(truth)
     predicted = list(predicted)
     truth_pairs = [(truth[i], truth[i+1]) for i in range(len(truth) - 1)]
-    predicted_pairs = [(predicted[i], predicted[i+1]) for i in range(len(predicted) - 1)]
+    predicted_pairs = [
+        (predicted[i], predicted[i+1]) for i in range(len(predicted) - 1)
+    ] + [
+        (predicted[i+1], predicted[i]) for i in range(len(predicted) - 1)
+    ]
     
     match_count = sum(1 for pair in predicted_pairs if pair in truth_pairs)
     
@@ -59,7 +63,7 @@ def calculate_correct_positions(truth, predicted):
 
 
 for input_f in input_files:
-    if "Llama-3.1-8B-Instruct" in input_f:
+    if "Llama-3.2-3B-Instruct" in input_f:
         print(input_f)
         precision_scores = []
         recall_scores = []
@@ -76,29 +80,17 @@ for input_f in input_files:
                     input_data = json.loads(line)
                 except json.JSONDecodeError as e:
                     print(f"Skipping line {idx} due to JSONDecodeError: {e}")
-                ground_truth = set(input_data['truth_idx'])
-                trouble_maker = set(input_data['trouble_idx'])
-                total_list = ground_truth | trouble_maker
+                ground_truth = input_data['truth_idx']
+                trouble_maker = input_data['trouble_idx']
+                # total_list = ground_truth - trouble_maker
                 if find_integer(input_data['response']) is not None and len(ground_truth) != 0:
                     numbers = re.findall(r'\d+', input_data['response'])
-                    output = set(list(map(int, numbers))[:len(ground_truth)])
+                    output = list(dict.fromkeys(map(int, numbers)))[:len(ground_truth)]
 
                     # mrr_score = calculate_mrr(ground_truth, output)
                     pos_socre = calculate_correct_positions(ground_truth, output)
                     single_score = calculate_pairwise_accuracy(ground_truth, output)
                     # calculate the confusion matrix
-                    tp = ground_truth & output
-                    fp = output - ground_truth
-                    fn = ground_truth - output
-                    tn = total_list - (ground_truth | output)
-
-                    precision = len(tp) / (len(tp) + len(fp)) if (len(tp) + len(fp)) > 0 else 0
-                    recall = len(tp) / (len(tp) + len(fn)) if (len(tp) + len(fn)) > 0 else 0
-                    f1_score = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
-
-                    precision_scores.append(precision)
-                    recall_scores.append(recall)
-                    f1_scores.append(f1_score)
                     # mrr_scores.append(mrr_score)
                     pos_socres.append(pos_socre)
                     single_scores.append(single_score)
@@ -113,31 +105,17 @@ for input_f in input_files:
         elif task == "multi_round":
             for idx, line in enumerate(file_lst):
                 input_data = json.loads(line)
-                ground_truth = set(input_data['truth_idx'])
-                trouble_maker = set(input_data['trouble_idx'])
-                total_list = ground_truth | trouble_maker
+                ground_truth = input_data['truth_idx']
+                trouble_maker = input_data['trouble_idx']
+                # total_list = ground_truth - trouble_maker
                 if len(ground_truth) != 0:
                     output = input_data['response_index']
                     if "$" in output: 
                         output.remove("$")
-                    output = set(output)
                     # mrr_score = calculate_mrr(ground_truth, output)
                     pos_socre = calculate_correct_positions(ground_truth, output)
                     single_score = calculate_pairwise_accuracy(ground_truth, output)
 
-                    # calculate the confusion matrix
-                    tp = ground_truth & output
-                    fp = output - ground_truth
-                    fn = ground_truth - output
-                    tn = total_list - (ground_truth | output)
-
-                    precision = len(tp) / (len(tp) + len(fp)) if (len(tp) + len(fp)) > 0 else 0
-                    recall = len(tp) / (len(tp) + len(fn)) if (len(tp) + len(fn)) > 0 else 0
-                    f1_score = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
-
-                    precision_scores.append(precision)
-                    recall_scores.append(recall)
-                    f1_scores.append(f1_score)
                     # mrr_scores.append(mrr_score)
                     pos_socres.append(pos_socre)
                     single_scores.append(single_score)
