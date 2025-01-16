@@ -6,7 +6,7 @@ random.seed(42)
 
 
 class MazeDatasetProcessor:
-  def __init__(self, config_dict, config_flag, confusion_level=8, task_level='basic'):
+  def __init__(self, config_dict, config_flag, confusion_level=0, task_level='basic'):
       self.confusion_level = confusion_level
       self.shot_file = "./shot_data/shot.json"
       # self.trouble_maker_file = "./shot_data/trouble_maker.txt"
@@ -123,7 +123,7 @@ ANSWER:"""
       return line
 
   def get_oneround(self):
-      dataset = load_dataset("JesseLiu/MedQA_Maze", self.task_level, split="test", trust_remote_code=True)
+      dataset = load_dataset("JesseLiu/MedQA_Maze", self.task_level, split="test")
       dataset = dataset.map(
           lambda example, index: self.oneround_prompt(example, index),
           with_indices=True,
@@ -133,7 +133,7 @@ ANSWER:"""
 
 
   def get_multiround(self):
-      dataset = load_dataset("JesseLiu/MedQA_Maze", self.task_level, split="test", trust_remote_code=True)
+      dataset = load_dataset("JesseLiu/MedQA_Maze", self.task_level, split="test")
       dataset = dataset.map(
           lambda example, index: self.muliround_prompt(example, index),
           with_indices=True,

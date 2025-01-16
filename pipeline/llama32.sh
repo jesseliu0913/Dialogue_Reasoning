@@ -30,3 +30,7 @@ CUDA_VISIBLE_DEVICES=7 nohup python main.py --model "hf" --model_args "meta-llam
 CUDA_VISIBLE_DEVICES=5 nohup python main.py --model "hf" --model_args "meta-llama/Llama-3.2-3B-Instruct" --output_path "./output" --task_type "multi_round" --lora_weight "JesseLiu/llama32_combine_dialogue" --task_name 'llama' --confusion_level 1 --num_fewshot 0 --config 'cl_1' > ./log/llama_diag1m.log 2>&1 &
 CUDA_VISIBLE_DEVICES=3 nohup python main.py --model "hf" --model_args "meta-llama/Llama-3.2-3B-Instruct" --output_path "./output" --task_type "multi_round" --lora_weight "JesseLiu/llama32_combine_dialogue" --task_name 'llama' --confusion_level 3 --num_fewshot 0 --config 'cl_3' > ./log/llama_diag3m.log 2>&1 &
 CUDA_VISIBLE_DEVICES=1 nohup python main.py --model "hf" --model_args "meta-llama/Llama-3.2-3B-Instruct" --output_path "./output" --task_type "multi_round" --lora_weight "JesseLiu/llama32_combine_dialogue" --task_name 'llama' --confusion_level 5 --num_fewshot 0 --config 'cl_5' > ./log/llama_diag5m.log 2>&1 &
+
+
+CUDA_VISIBLE_DEVICES=0 nohup python main.py --model "hf" --model_args "meta-llama/Llama-3.2-3B-Instruct" --output_path "./output" --task_type "one_round" --task_name 'llama' --confusion_level 0 --num_fewshot 0 --config 'cl_0' > ./log/llama32_raw0.log 2>&1 &
+CUDA_VISIBLE_DEVICES=0 nohup python main.py --model "hf" --model_args "meta-llama/Llama-3.2-3B-Instruct" --output_path "./output" --task_type "multi_round" --task_name 'llama' --confusion_level 0 --num_fewshot 0 --config 'cl_0' > ./log/llama32_raw0m.log 2>&1 &
