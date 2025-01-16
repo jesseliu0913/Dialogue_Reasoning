@@ -59,13 +59,14 @@ def calculate_correct_positions(truth, predicted):
 
 
 for input_f in input_files:
-    if "Mistral-7B-Instruct-v0.3" in input_f:
+    if "Llama-3.1-8B-Instruct" in input_f:
         print(input_f)
         precision_scores = []
         recall_scores = []
         f1_scores = []
         mrr_scores = []
         pos_socres = []
+        single_scores = []
 
         file_path = os.path.join(FOLDER_PATH, input_f)
         file_lst = open(file_path, 'r')
@@ -84,6 +85,7 @@ for input_f in input_files:
 
                     # mrr_score = calculate_mrr(ground_truth, output)
                     pos_socre = calculate_correct_positions(ground_truth, output)
+                    single_score = calculate_pairwise_accuracy(ground_truth, output)
                     # calculate the confusion matrix
                     tp = ground_truth & output
                     fp = output - ground_truth
@@ -99,12 +101,14 @@ for input_f in input_files:
                     f1_scores.append(f1_score)
                     # mrr_scores.append(mrr_score)
                     pos_socres.append(pos_socre)
+                    single_scores.append(single_score)
 
-            print("F1:", np.mean(np.array(f1_scores)))
-            print("Precision:", np.mean(np.array(precision_scores)))
-            print("Recall:", np.mean(np.array(recall_scores)))
+            # print("F1:", np.mean(np.array(f1_scores)))
+            # print("Precision:", np.mean(np.array(precision_scores)))
+            # print("Recall:", np.mean(np.array(recall_scores)))
             # print("MRR:", np.mean(np.array(mrr_scores)))
             print("POS:", np.mean(np.array(pos_socres)))
+            print("SINGLE:", np.mean(np.array(single_scores)))
 
         elif task == "multi_round":
             for idx, line in enumerate(file_lst):
@@ -119,6 +123,7 @@ for input_f in input_files:
                     output = set(output)
                     # mrr_score = calculate_mrr(ground_truth, output)
                     pos_socre = calculate_correct_positions(ground_truth, output)
+                    single_score = calculate_pairwise_accuracy(ground_truth, output)
 
                     # calculate the confusion matrix
                     tp = ground_truth & output
@@ -135,9 +140,11 @@ for input_f in input_files:
                     f1_scores.append(f1_score)
                     # mrr_scores.append(mrr_score)
                     pos_socres.append(pos_socre)
+                    single_scores.append(single_score)
 
-            print("F1:", np.mean(np.array(f1_scores)))
-            print("Precision:", np.mean(np.array(precision_scores)))
-            print("Recall:", np.mean(np.array(recall_scores)))
-            # print("MRR:", np.mean(np.array(mrr_scores)))
+            # print("F1:", np.mean(np.array(f1_scores)))
+            # print("Precision:", np.mean(np.array(precision_scores)))
+            # print("Recall:", np.mean(np.array(recall_scores)))
+            # # print("MRR:", np.mean(np.array(mrr_scores)))
             print("POS:", np.mean(np.array(pos_socres)))
+            print("SINGLE:", np.mean(np.array(single_scores)))

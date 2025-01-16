@@ -2,7 +2,7 @@ import os
 import json
 import random
 from datasets import load_dataset
-
+random.seed(42)
 
 
 class MazeDatasetProcessor:
@@ -75,6 +75,14 @@ class MazeDatasetProcessor:
         muddy_zoo = groundtruth_zoo.copy()
         trouble_index = []
         truth_idx = [i for i in range(len(muddy_zoo))]
+
+        combined = list(zip(muddy_zoo, truth_idx))
+        random.shuffle(combined)
+        muddy_zoo, truth_idx = zip(*combined)
+
+        muddy_zoo = list(muddy_zoo)
+        truth_idx = list(truth_idx)
+
         return muddy_zoo, truth_idx, trouble_index
 
     
@@ -86,7 +94,7 @@ class MazeDatasetProcessor:
 Question: {line['question']}
 Answer: {line['answer']}
 Below are several evidence sentences. 
-Identify the {len(line['groundtruth_zoo'])} sentences that, if added to the background information, would support inferring the answer based on the given question-answer pair.
+Identify the {len(line['groundtruth_zoo'])} sentences that, if added to the background information, would support inferring the answer based on the given question-answer pair. Please choose the sentence in logical order!
 {tagged_maze}
 Provide only the indices of the relevant sentences in brackets formatted like this: [ ], no more than {len(line['groundtruth_zoo'])} sentences.
 ANSWER:
