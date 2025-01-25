@@ -68,7 +68,7 @@ class MazeDatasetProcessor:
           for index, item in zip(truth_idx, groundtruth_zoo):
               muddy_zoo.insert(index, item)
 
-          trouble_index = [i for i in range(len(muddy_zoo)) if i not in new_truth_index]
+          trouble_index = [i for i in range(len(muddy_zoo)) if i not in truth_idx]
         
         return muddy_zoo, truth_idx, trouble_index
     else:

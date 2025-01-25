@@ -8,15 +8,17 @@ oneround_files = [f for f in os.listdir(f"{OUTPUT_FOLDER}/all/one_round") if not
 multiround_files = [f for f in os.listdir(f"{OUTPUT_FOLDER}/all/multi_round") if not f.startswith(".")]
 
 group_types = ['basic', 'advance', 'challenge']
+basic_length = 659
+advance_length = 1187
+challenge_length = 1510
+# with open("../groups_info/basic.pkl", "rb") as file:
+#     basic_lst = pickle.load(file)
 
-with open("../groups_info/basic.pkl", "rb") as file:
-    basic_lst = pickle.load(file)
+# with open("../groups_info/advance.pkl", "rb") as file:
+#     advance_lst = pickle.load(file)
 
-with open("../groups_info/advance.pkl", "rb") as file:
-    advance_lst = pickle.load(file)
-
-with open("../groups_info/challenge.pkl", "rb") as file:
-    challenge_lst = pickle.load(file)
+# with open("../groups_info/challenge.pkl", "rb") as file:
+#     challenge_lst = pickle.load(file)
 
 for gt in group_types:
   folder_path = os.path.join(OUTPUT_FOLDER, gt)
@@ -41,12 +43,19 @@ for multi_f in multiround_files:
     advance_file = open(f"{OUTPUT_FOLDER}/advance/multi_round/{multi_f}", "a")
     challenge_file = open(f"{OUTPUT_FOLDER}/challenge/multi_round/{multi_f}", "a")
 
+    # for idx, line in enumerate(multi_file):
+    #     if idx in basic_lst:
+    #         basic_file.write(line)
+    #     elif idx in advance_lst:
+    #         advance_file.write(line)
+    #     elif idx in challenge_lst:
+    #         challenge_file.write(line)
     for idx, line in enumerate(multi_file):
-        if idx in basic_lst:
+        if idx < basic_length:
             basic_file.write(line)
-        elif idx in advance_lst:
+        elif idx < basic_length + advance_length:
             advance_file.write(line)
-        elif idx in challenge_lst:
+        else:
             challenge_file.write(line)
             
 for one_f in oneround_files:
@@ -64,15 +73,27 @@ for one_f in oneround_files:
     challenge_file = open(f"{OUTPUT_FOLDER}/challenge/one_round/{one_f}", "a")
 
     for idx, line in enumerate(one_file):
-        if idx in basic_lst:
+        if idx < basic_length:
             basic_file.write(line)
-        elif idx in advance_lst:
+        elif idx < basic_length + advance_length:
             advance_file.write(line)
-        elif idx in challenge_lst:
+        else:
             challenge_file.write(line)
+
+    # for idx, line in enumerate(one_file):
+    #     if idx in basic_lst:
+    #         basic_file.write(line)
+    #     elif idx in advance_lst:
+    #         advance_file.write(line)
+    #     elif idx in challenge_lst:
+    #         challenge_file.write(line)
 
     
 
 
-
+"""
+Basic file length: 659
+Advance file length: 1187
+Challenge file length: 1510
+"""
 

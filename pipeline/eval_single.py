@@ -11,7 +11,7 @@ parser.add_argument('--task', type=str, required=True, help='task type')
 args = parser.parse_args()
 
 if args.task == "one_round":
-    FOLDER_PATH, task = "./output/all/one_round", "one_round"
+    FOLDER_PATH, task = "./output/advance/one_round", "one_round"
 elif args.task == "multi_round":
     FOLDER_PATH, task= "./output/all/multi_round", "multi_round"
 else:
@@ -36,6 +36,7 @@ def calculate_mrr(truth, predicted):
 def calculate_pairwise_accuracy(truth, predicted):
     truth = list(truth)
     predicted = list(predicted)
+    # print(predicted, truth)
     truth_pairs = [(truth[i], truth[i+1]) for i in range(len(truth) - 1)]
     predicted_pairs = [
         (predicted[i], predicted[i+1]) for i in range(len(predicted) - 1)
@@ -44,6 +45,8 @@ def calculate_pairwise_accuracy(truth, predicted):
     ]
     
     match_count = sum(1 for pair in predicted_pairs if pair in truth_pairs)
+    # print("match_count", match_count)
+    # print("truth_pairs", truth_pairs)
     
     return match_count / len(truth_pairs) if truth_pairs else 0.0
 
@@ -52,6 +55,7 @@ def calculate_correct_positions(truth, predicted):
     truth = list(truth)
     predicted = list(predicted)
     length = len(truth)
+    # print(predicted, truth)
 
     correct_count = 0
 
@@ -59,11 +63,18 @@ def calculate_correct_positions(truth, predicted):
         if index < len(truth) and truth[index] == item:  
             correct_count += 1
 
+    # print("correct_count", correct_count)
+    # print("length", length)
+
     return correct_count / length if length != 0 else 0.0
 
 
 for input_f in input_files:
-    if "Llama-3.2-3B-Instruct" in input_f:
+    # hf_Qwen2.5-3B-Instruct_qwen25_combine_dialogue_0_3
+    # hf_Qwen2.5-3B-Instruct_qwen3b_baseline_0_3
+    # hf_Llama-3.2-3B-Instruct_None_0_3
+    # hf_Llama-3.2-3B-Instruct_llama32_combine_dialogue_0_3
+    if "hf_Qwen2.5-3B-Instruct_qwen3b_baseline_0_3" in input_f:
         print(input_f)
         precision_scores = []
         recall_scores = []
@@ -83,17 +94,21 @@ for input_f in input_files:
                 ground_truth = input_data['truth_idx']
                 trouble_maker = input_data['trouble_idx']
                 # total_list = ground_truth - trouble_maker
-                if find_integer(input_data['response']) is not None and len(ground_truth) != 0:
-                    numbers = re.findall(r'\d+', input_data['response'])
-                    output = list(dict.fromkeys(map(int, numbers)))[:len(ground_truth)]
+                if len(ground_truth) != 0:
+                    if find_integer(input_data['response']) is not None:
+                        numbers = re.findall(r'\d+', input_data['response'])
+                        output = list(dict.fromkeys(map(int, numbers)))[:len(ground_truth)]
 
-                    # mrr_score = calculate_mrr(ground_truth, output)
-                    pos_socre = calculate_correct_positions(ground_truth, output)
-                    single_score = calculate_pairwise_accuracy(ground_truth, output)
-                    # calculate the confusion matrix
-                    # mrr_scores.append(mrr_score)
-                    pos_socres.append(pos_socre)
-                    single_scores.append(single_score)
+                        # mrr_score = calculate_mrr(ground_truth, output)
+                        pos_socre = calculate_correct_positions(ground_truth, output)
+                        single_score = calculate_pairwise_accuracy(ground_truth, output)
+                        # calculate the confusion matrix
+                        # mrr_scores.append(mrr_score)
+                        pos_socres.append(pos_socre)
+                        single_scores.append(single_score)
+                    else:
+                        pos_socres.append(0)
+                        single_scores.append(0)
 
             # print("F1:", np.mean(np.array(f1_scores)))
             # print("Precision:", np.mean(np.array(precision_scores)))
