@@ -33,3 +33,12 @@ CUDA_VISIBLE_DEVICES=6 nohup python main.py --model "hf" --model_args "meta-llam
 
 CUDA_VISIBLE_DEVICES=0 nohup python main.py --model "hf" --model_args "meta-llama/Llama-3.1-8B-Instruct" --output_path "./output" --task_type "one_round" --task_name 'llama' --confusion_level 0 --num_fewshot 0 --config 'cl_0' > ./log/llama31_raw0.log 2>&1 &
 CUDA_VISIBLE_DEVICES=0 nohup python main.py --model "hf" --model_args "meta-llama/Llama-3.1-8B-Instruct" --output_path "./output" --task_type "multi_round" --task_name 'llama' --confusion_level 0 --num_fewshot 0 --config 'cl_0' > ./log/llama31_raw0m.log 2>&1 &
+
+
+
+# CUDA_VISIBLE_DEVICES=4 nohup python main.py --model "hf" --model_args "meta-llama/Llama-3.1-8B-Instruct" --output_path "./output" --task_type "multi_round" --lora_weight "rellabear/llama3.1_8b_context_ep3" --task_name 'llama' --confusion_level 1 --num_fewshot 0 --config 'cl_1' > ./log/llama_case1m.log 2>&1 &
+CUDA_VISIBLE_DEVICES=5 nohup python main.py --model "hf" --model_args "meta-llama/Llama-3.1-8B-Instruct" --output_path "./output" --task_type "multi_round" --lora_weight "rellabear/llama3.1_8b_context_ep3" --task_name 'llama' --confusion_level 3 --num_fewshot 0 --config 'cl_3' > ./log/llama_case3m.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python main.py --model "hf" --model_args "meta-llama/Llama-3.1-8B-Instruct" --output_path "./output" --task_type "multi_round" --lora_weight "rellabear/llama3.1_8b_context_ep3" --task_name 'llama' --confusion_level 5 --num_fewshot 0 --config 'cl_5' > ./log/llama_case5m.log 2>&1 &
+CUDA_VISIBLE_DEVICES=6 nohup python main.py --model "hf" --model_args "meta-llama/Llama-3.1-8B-Instruct" --output_path "./output" --task_type "multi_round" --lora_weight "rellabear/llama3.1_8b_dialogue_ep3" --task_name 'llama' --confusion_level 1 --num_fewshot 0 --config 'cl_1' > ./log/llama_casediag1m.log 2>&1 &
+CUDA_VISIBLE_DEVICES=6 nohup python main.py --model "hf" --model_args "meta-llama/Llama-3.1-8B-Instruct" --output_path "./output" --task_type "multi_round" --lora_weight "rellabear/llama3.1_8b_dialogue_ep3" --task_name 'llama' --confusion_level 3 --num_fewshot 0 --config 'cl_3' > ./log/llama_casediag3m.log 2>&1 &
+CUDA_VISIBLE_DEVICES=6 nohup python main.py --model "hf" --model_args "meta-llama/Llama-3.1-8B-Instruct" --output_path "./output" --task_type "multi_round" --lora_weight "rellabear/llama3.1_8b_dialogue_ep3" --task_name 'llama' --confusion_level 5 --num_fewshot 0 --config 'cl_5' > ./log/llama_casediag5m.log 2>&1 &
