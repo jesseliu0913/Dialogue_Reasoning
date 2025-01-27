@@ -25,7 +25,7 @@ def multi_round(model, line, tokenizer, maze_data, openai_flag):
 
     # start with the round 0
     init_prompt = line['prompt']
-    print("init_prompt", init_prompt)
+    # print("init_prompt", init_prompt)
     response = call_model(tokenizer, model, init_prompt, max_new_tokens=1, openai=openai_flag)
     line_response.append(response)
     
@@ -50,11 +50,11 @@ def multi_round(model, line, tokenizer, maze_data, openai_flag):
           updated_maze.pop(last_answer_idx)
                                                               
       round_prompt = maze_data.get_roundprompt(round_num, line, last_answer, updated_maze)
-      print("round_prompt", round_prompt)
+      # print("round_prompt", round_prompt)
       # message = updated_prompt + round_prompt
       message = round_prompt
       response = call_model(tokenizer, model, message, max_new_tokens=10, openai=openai_flag)
-      print("response", response)
+      # print("response", response)
       line_response.append(response)
 
       # updated_prompt += f"\n{round_prompt}{response}"
