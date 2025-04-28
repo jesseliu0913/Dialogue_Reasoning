@@ -74,7 +74,7 @@ for input_f in input_files:
     # hf_Qwen2.5-3B-Instruct_qwen3b_baseline_0_3
     # hf_Llama-3.2-3B-Instruct_None_0_3
     # hf_Llama-3.2-3B-Instruct_llama32_combine_dialogue_0_3
-    if "hf_Llama-3.1-8B-Instruct_exp3_llama3.1_combine_dialogue_ep3_0_0" in input_f:
+    if "Instruct_llama3.1_8b_context_ep3" in input_f:
         print(input_f)
         precision_scores = []
         recall_scores = []

@@ -164,6 +164,7 @@ cython_debug/
 # dialogue_generation
 /dialogue_generation/dialogue_dataset/*
 /dialogue_generation/dialogue_set/*
+/dialogue_generation/gemini_dialogue/*
 
 # init_trail
 /init_trail/results/*
