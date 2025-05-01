@@ -53,35 +53,42 @@ class MazeDatasetProcessor:
             choose_sentence = self.read_exist_tm(line_idx)
     
         if len(groundtruth_zoo) > len(choose_sentence):
-          muddy_zoo = groundtruth_zoo.copy()
-          trouble_index = sorted(random.sample(range(len(groundtruth_zoo) + 1), len(choose_sentence)))
+            muddy_zoo = groundtruth_zoo.copy()
+            trouble_index = sorted(random.sample(range(len(groundtruth_zoo) + 1), len(choose_sentence)))
 
-          for index, item in zip(trouble_index, choose_sentence):
-              muddy_zoo.insert(index, item)
+            for index, item in zip(trouble_index, choose_sentence):
+                muddy_zoo.insert(index, item)
 
-          truth_idx = [i for i in range(len(muddy_zoo)) if i not in trouble_index]
+            truth_idx = [i for i in range(len(muddy_zoo)) if i not in trouble_index]
 
         else:
-          muddy_zoo = choose_sentence.copy()
-          truth_idx = sorted(random.sample(range(len(choose_sentence) + 1), len(groundtruth_zoo)))
-          new_truth_index = []
-          for index, item in zip(truth_idx, groundtruth_zoo):
-              muddy_zoo.insert(index, item)
-
-          trouble_index = [i for i in range(len(muddy_zoo)) if i not in truth_idx]
+            muddy_zoo = choose_sentence.copy()
+            truth_idx = sorted(random.sample(range(len(choose_sentence) + 1), len(groundtruth_zoo)))
+            
+            original_indices = {item: i for i, item in enumerate(groundtruth_zoo)}
+            
+            for index, item in zip(truth_idx, groundtruth_zoo):
+                muddy_zoo.insert(index, item)
+                
+            truth_idx = [i for i, item in enumerate(muddy_zoo) if item in groundtruth_zoo]
+            trouble_index = [i for i in range(len(muddy_zoo)) if i not in truth_idx]
         
         return muddy_zoo, truth_idx, trouble_index
     else:
         muddy_zoo = groundtruth_zoo.copy()
-        trouble_index = []
-        truth_idx = [i for i in range(len(muddy_zoo))]
-
-        combined = list(zip(muddy_zoo, truth_idx))
+        indices = list(range(len(muddy_zoo)))
+        
+        combined = list(zip(muddy_zoo, indices))
         random.shuffle(combined)
-        muddy_zoo, truth_idx = zip(*combined)
+        muddy_zoo, shuffled_indices = zip(*combined)
         
         muddy_zoo = list(muddy_zoo)
-        truth_idx = list(truth_idx)
+        
+        truth_idx = [0] * len(muddy_zoo)
+        for new_pos, orig_idx in enumerate(shuffled_indices):
+            truth_idx[orig_idx] = new_pos
+        
+        trouble_index = []
 
         return muddy_zoo, truth_idx, trouble_index
 
@@ -107,6 +114,9 @@ ANSWER:
   
   def muliround_prompt(self, line, idx):
       muddy_maze, truth_idx, new_trouble_index = self.create_maze(line['context'], line['groundtruth_zoo'], idx)
+      print("muddy_maze", muddy_maze)
+      print("truth_idx", truth_idx)
+
       tagged_maze = "\n".join([f"{i}: {sentence}" for i, sentence in enumerate(muddy_maze)])
       line['prompt'] = f"""Here is the background information: "{line['prerequisit']}"
 Question: {line['question']}

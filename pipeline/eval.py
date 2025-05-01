@@ -5,7 +5,8 @@ import numpy as np
 from collections import defaultdict
 from utils import *
 
-task_types = ["basic", "advance", "challenge"]
+# task_types = ["basic", "advance", "challenge"]
+task_types = ['all']
 round_types = ["one_round", "multi_round"]
 
 model_prefixes = [
@@ -50,7 +51,7 @@ def calculate_correct_positions(truth, predicted):
     return correct_count / length if length != 0 else 0.0
 
 for task in task_types:
-    FOLDER_PATH = f"./output/{task}"
+    FOLDER_PATH = f"./results/{task}"
     results = {
         "one_round": {prefix: defaultdict(dict) for prefix in model_prefixes},
         "multi_round": {prefix: defaultdict(dict) for prefix in model_prefixes}
@@ -160,7 +161,7 @@ for task in task_types:
         }
     }
 
-    output_dir = "./eval_results"
+    output_dir = "./eval_results_re"
     os.makedirs(output_dir, exist_ok=True)
     output_file = os.path.join(output_dir, f"{task}_results.json")
 

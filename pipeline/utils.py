@@ -27,6 +27,7 @@ def multi_round(model, line, tokenizer, maze_data, openai_flag):
     init_prompt = line['prompt']
     print("init_prompt", init_prompt)
     response = call_model(tokenizer, model, init_prompt, max_new_tokens=1, openai=openai_flag)
+    print("init_response", response)
     line_response.append(response)
     
     # now start the remaining rounds

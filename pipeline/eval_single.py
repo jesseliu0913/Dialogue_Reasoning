@@ -11,9 +11,9 @@ parser.add_argument('--task', type=str, required=True, help='task type')
 args = parser.parse_args()
 
 if args.task == "one_round":
-    FOLDER_PATH, task = "./output/advance/one_round", "one_round"
+    FOLDER_PATH, task = "./results/all/one_round", "one_round"
 elif args.task == "multi_round":
-    FOLDER_PATH, task= "./output/all/multi_round", "multi_round"
+    FOLDER_PATH, task= "./results/all/multi_round", "multi_round"
 else:
     print("Plz pass the correct task type in [one_round, multi_round]")
 
