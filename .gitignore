@@ -173,6 +173,7 @@ cython_debug/
 # pipeline
 /pipeline/log/*
 /pipeline/output/*
+/pipeline/results/*
 /pipeline/shotdata/*
 /pipeline/config/*
 /pipeline/output.zip

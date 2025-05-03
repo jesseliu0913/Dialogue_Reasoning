@@ -114,8 +114,8 @@ ANSWER:
   
   def muliround_prompt(self, line, idx):
       muddy_maze, truth_idx, new_trouble_index = self.create_maze(line['context'], line['groundtruth_zoo'], idx)
-      print("muddy_maze", muddy_maze)
-      print("truth_idx", truth_idx)
+    #   print("muddy_maze", muddy_maze)
+    #   print("truth_idx", truth_idx)
 
       tagged_maze = "\n".join([f"{i}: {sentence}" for i, sentence in enumerate(muddy_maze)])
       line['prompt'] = f"""Here is the background information: "{line['prerequisit']}"

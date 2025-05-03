@@ -5,8 +5,8 @@ import numpy as np
 from collections import defaultdict
 from utils import *
 
-# task_types = ["basic", "advance", "challenge"]
-task_types = ['all']
+task_types = ["basic", "advance", "challenge"]
+# task_types = ['all']
 round_types = ["one_round", "multi_round"]
 
 model_prefixes = [
