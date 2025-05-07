@@ -178,6 +178,9 @@ cython_debug/
 /pipeline/config/*
 /pipeline/output.zip
 
+/organize_output/other_cluster
+/organize_output/results
+
 # reasoning_generation/data
 /reasoning_generation/data/*
 

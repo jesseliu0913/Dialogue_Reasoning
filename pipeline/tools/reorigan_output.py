@@ -3,7 +3,7 @@ import json
 import pickle
 
 
-OUTPUT_FOLDER = "../results"
+OUTPUT_FOLDER = "/playpen/jesse/Dialogue_Reasoning/organize_output/results"
 oneround_files = [f for f in os.listdir(f"{OUTPUT_FOLDER}/all/one_round") if not f.startswith(".")]
 multiround_files = [f for f in os.listdir(f"{OUTPUT_FOLDER}/all/multi_round") if not f.startswith(".")]
 

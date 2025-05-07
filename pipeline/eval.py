@@ -5,8 +5,8 @@ import numpy as np
 from collections import defaultdict
 from utils import *
 
-task_types = ["basic", "advance", "challenge"]
-# task_types = ['all']
+# task_types = ["basic", "advance", "challenge"]
+task_types = ['all']
 round_types = ["one_round", "multi_round"]
 
 model_prefixes = [
@@ -51,7 +51,7 @@ def calculate_correct_positions(truth, predicted):
     return correct_count / length if length != 0 else 0.0
 
 for task in task_types:
-    FOLDER_PATH = f"./results/{task}"
+    FOLDER_PATH = f"/playpen/jesse/Dialogue_Reasoning/organize_output/results/{task}"
     results = {
         "one_round": {prefix: defaultdict(dict) for prefix in model_prefixes},
         "multi_round": {prefix: defaultdict(dict) for prefix in model_prefixes}

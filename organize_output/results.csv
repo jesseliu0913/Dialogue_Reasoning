@@ -1,0 +1,83 @@
+model,CL,experiment,tuning,single_acc,multi_acc
+Llama-3.2-3B-Instruct,3,Exp3,Baseline,0.2534,0.1915
+Llama-3.2-3B-Instruct,3,Exp1,Dialogue,0.3982,0.2301
+Llama-3.2-3B-Instruct,3,Raw,Raw,0.3442,0.2042
+Llama-3.2-3B-Instruct,3,Exp2,Dialogue,0.4466,0.3004
+Llama-3.2-3B-Instruct,3,Exp3,Dialogue,0.4419,0.3079
+Llama-3.2-3B-Instruct,3,Exp2,Case Report,0.4272,0.2677
+Llama-3.2-3B-Instruct,3,Exp1,Multi_Choice,0.1335,0.0759
+Llama-3.2-3B-Instruct,5,Exp3,Dialogue,0.3363,0.2375
+Llama-3.2-3B-Instruct,5,Exp2,Case Report,0.3321,0.2142
+Llama-3.2-3B-Instruct,5,Exp2,Dialogue,0.3325,0.2274
+Llama-3.2-3B-Instruct,5,Exp1,Multi_Choice,0.1202,0.0711
+Llama-3.2-3B-Instruct,5,Exp3,Baseline,0.202,0.1517
+Llama-3.2-3B-Instruct,5,Raw,Raw,0.2895,0.1752
+Llama-3.2-3B-Instruct,5,Exp1,Dialogue,0.3132,0.1871
+Llama-3.2-3B-Instruct,0,Exp3,Dialogue,0.3024,0.1814
+Llama-3.2-3B-Instruct,0,Exp1,Multi_Choice,0.1213,0.0787
+Llama-3.2-3B-Instruct,0,Exp2,Case Report,0.3065,0.1723
+Llama-3.2-3B-Instruct,0,Exp1,Dialogue,0.2956,0.1716
+Llama-3.2-3B-Instruct,0,Raw,Raw,0.2398,0.1376
+Llama-3.2-3B-Instruct,0,Exp3,Baseline,0.1636,0.119
+Llama-3.2-3B-Instruct,0,Exp2,Dialogue,0.2988,0.1757
+Llama-3.2-3B-Instruct,1,Exp2,Dialogue,0.6785,0.5038
+Llama-3.2-3B-Instruct,1,Exp2,Case Report,0.6114,0.4283
+Llama-3.2-3B-Instruct,1,Exp1,Dialogue,0.6231,0.4367
+Llama-3.2-3B-Instruct,1,Exp3,Dialogue,0.628,0.4608
+Llama-3.2-3B-Instruct,1,Exp3,Baseline,0.3365,0.2653
+Llama-3.2-3B-Instruct,1,Raw,Raw,0.4456,0.2653
+Llama-3.2-3B-Instruct,1,Exp1,Multi_Choice,0.1565,0.0717
+Llama-3.1-8B-Instruct,3,Exp3,Dialogue,0.4388,0.2793
+Llama-3.1-8B-Instruct,3,Raw,Raw,0.498,0.3191
+Llama-3.1-8B-Instruct,3,Exp1,Dialogue,0.399,0.3122
+Llama-3.1-8B-Instruct,3,Exp2,Dialogue,0.4544,0.2828
+Llama-3.1-8B-Instruct,3,Exp1,Multi_Choice,0.3754,0.2488
+Llama-3.1-8B-Instruct,3,Exp2,Case Report,0.4409,0.2773
+Llama-3.1-8B-Instruct,3,Exp3,Baseline,0.0,0.0
+Llama-3.1-8B-Instruct,5,Exp1,Multi_Choice,0.3108,0.1901
+Llama-3.1-8B-Instruct,5,Exp3,Dialogue,0.2939,0.2067
+Llama-3.1-8B-Instruct,5,Exp1,Dialogue,0.2889,0.2335
+Llama-3.1-8B-Instruct,5,Exp3,Baseline,0.0,0.0003
+Llama-3.1-8B-Instruct,5,Raw,Raw,0.4243,0.2532
+Llama-3.1-8B-Instruct,5,Exp2,Dialogue,0.3527,0.2138
+Llama-3.1-8B-Instruct,5,Exp2,Case Report,0.3466,0.2126
+Llama-3.1-8B-Instruct,1,Exp2,Dialogue,0.6959,0.4912
+Llama-3.1-8B-Instruct,1,Exp1,Multi_Choice,0.5361,0.3268
+Llama-3.1-8B-Instruct,1,Exp3,Dialogue,0.7224,0.5477
+Llama-3.1-8B-Instruct,1,Exp2,Case Report,0.6766,0.442
+Llama-3.1-8B-Instruct,1,Exp1,Dialogue,0.6409,0.5292
+Llama-3.1-8B-Instruct,1,Exp3,Baseline,0.0003,0.0014
+Llama-3.1-8B-Instruct,1,Raw,Raw,0.6423,0.4214
+Llama-3.1-8B-Instruct,0,Exp2,Dialogue,0.2987,0.1841
+Llama-3.1-8B-Instruct,0,Raw,Raw,0.2941,0.1721
+Llama-3.1-8B-Instruct,0,Exp1,Multi_Choice,0.2946,0.1736
+Llama-3.1-8B-Instruct,0,Exp3,Baseline,0.0006,0.001
+Llama-3.1-8B-Instruct,0,Exp3,Dialogue,0.2973,0.1682
+Llama-3.1-8B-Instruct,0,Exp1,Dialogue,0.2834,0.1551
+Llama-3.1-8B-Instruct,0,Exp2,Case Report,0.3037,0.19
+Qwen2.5-3B-Instruct,1,Exp2,Case Report,0.6694,0.4148
+Qwen2.5-3B-Instruct,1,Raw,Raw,0.6417,0.389
+Qwen2.5-3B-Instruct,1,Exp3,Baseline,0.6405,0.3137
+Qwen2.5-3B-Instruct,1,Exp1,Dialogue,0.685,0.4777
+Qwen2.5-3B-Instruct,1,Exp1,Multi_Choice,0.5807,0.2833
+Qwen2.5-3B-Instruct,1,Exp2,Dialogue,0.6408,0.4069
+Qwen2.5-3B-Instruct,1,Exp3,Dialogue,0.6709,0.4598
+Qwen2.5-3B-Instruct,0,Exp1,Dialogue,0.2796,0.1805
+Qwen2.5-3B-Instruct,0,Exp2,Dialogue,0.2505,0.1647
+Qwen2.5-3B-Instruct,0,Raw,Raw,0.2611,0.1599
+Qwen2.5-3B-Instruct,0,Exp2,Case Report,0.2716,0.1687
+Qwen2.5-3B-Instruct,0,Exp3,Dialogue,0.2662,0.175
+Qwen2.5-3B-Instruct,0,Exp1,Multi_Choice,0.2228,0.1362
+Qwen2.5-3B-Instruct,0,Exp3,Baseline,0.2101,0.1345
+Qwen2.5-3B-Instruct,5,Exp3,Dialogue,0.3508,0.2484
+Qwen2.5-3B-Instruct,5,Exp2,Case Report,0.3428,0.2248
+Qwen2.5-3B-Instruct,5,Exp1,Multi_Choice,0.2836,0.1635
+Qwen2.5-3B-Instruct,5,Exp3,Baseline,0.3103,0.1833
+Qwen2.5-3B-Instruct,5,Exp2,Dialogue,0.3544,0.2349
+Qwen2.5-3B-Instruct,5,Raw,Raw,0.3503,0.2328
+Qwen2.5-3B-Instruct,5,Exp1,Dialogue,0.3263,0.2332
+Qwen2.5-3B-Instruct,3,Exp3,Dialogue,0.4506,0.3143
+Qwen2.5-3B-Instruct,3,Raw,Raw,0.4481,0.2889
+Qwen2.5-3B-Instruct,3,Exp1,Multi_Choice,0.3681,0.2071
+Qwen2.5-3B-Instruct,3,Exp3,Baseline,0.4385,0.2605
+Qwen2.5-3B-Instruct,3,Exp2,Case Report,0.449,0.2885
